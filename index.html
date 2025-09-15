@@ -7,16 +7,18 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        nav {
+            background-color: #1e192c; /* 새로운 배경색 적용 */
+            width: 100vw;
+            position: fixed;
+            color: white;
+            margin-top: 10px; /* 상단 여백 추가 */
+            z-index: 10;
+        }
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -36,15 +38,12 @@
         }
         
         /* 드롭다운 메뉴 스타일 */
-        .dropdown {
-            cursor: pointer;
-        }
         .dropdown-content {
             overflow: hidden;
             max-height: 0;
-            transition: max-height 0.3s ease-in-out;
+            transition: max-height 0.5s ease-in-out; /* 부드러운 애니메이션 효과 */
             position: absolute;
-            background-color: #333;
+            background-color: #1e192c;
             min-width: 100px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
@@ -52,8 +51,9 @@
             right: 0;
             display: flex;
             flex-direction: column;
+            align-items: center; /* 항목을 가운데로 정렬 */
         }
-        .dropdown.open .dropdown-content {
+        .dropdown:hover .dropdown-content {
             max-height: 200px;
         }
         .dropdown-content a {
@@ -61,32 +61,10 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: left;
+            text-align: center; /* 항목 텍스트를 가운데로 정렬 */
         }
         .dropdown-content a:hover {
-            background-color: #111;
-        }
-        /* 현재 선택된 언어 스타일 */
-        .dropdown-content a.current {
-            font-weight: bold;
-            color: #ddd;
             background-color: #555;
-            pointer-events: none; /* 클릭 비활성화 */
-        }
-        
-        /* 언어 버튼과 아이콘 스타일 */
-        .lang-button {
-            display: flex;
-            align-items: center;
-        }
-        .lang-button .arrow {
-            margin-left: 5px;
-            font-size: 10px;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease-in-out;
-        }
-        .dropdown.open .lang-button .arrow {
-            transform: rotate(180deg);
         }
 
         .fixed-background-section {
@@ -130,17 +108,30 @@
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
             
             <li class="dropdown">
-                <a href="#" class="lang-button">
-                    <span>한국어</span>
-                    <span class="arrow">▼</span>
-                </a>
+                <a href="#">한국어</a>
                 <div class="dropdown-content">
-                    <a href="index_KR.html">한국어</a>
-                    <a href="index_US.html">English</a>
+                    <a href="index_KR.html">한국어 (KR)</a>
+                    <a href="index_US.html">English (US)</a>
                 </div>
             </li>
         </ul>
     </nav>
     <div class="fixed-background-section">
         <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
-        <p>저희 게임
+        <p>저희 게임들을 만나보세요.</p>
+    </div>
+    <div class="content-after-nav">
+        <div class="other-content">
+            <h2>최신 업데이트</h2>
+            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
+            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
+        </div>
+        <div class="another-section">
+            <h2>우리의 미션</h2>
+            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
+            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
+            <p>궁금한 점이 있다면 언제든지 문의해주세요.</p>
+        </div>
+    </div>
+</body>
+</html>
