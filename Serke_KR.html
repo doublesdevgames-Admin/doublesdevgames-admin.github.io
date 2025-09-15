@@ -1,17 +1,65 @@
-<style>
-  .back-button {
-    background-color: #555; /* 배경색 */
-    color: white; /* 글자색 */
-    padding: 10px 20px; /* 안쪽 여백 */
-    border: none; /* 테두리 제거 */
-    cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
-    border-radius: 5px; /* 모서리 둥글게 */
-    font-size: 16px;
-    margin: 20px;
-  }
-  .back-button:hover {
-    background-color: #777; /* 마우스를 올렸을 때 색상 변경 */
-  }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoublesDevGames - Serke 소개</title>
+    <style>
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 20px;
+        }
+        .back-button:hover {
+            background-color: #777;
+        }
 
-<button class="back-button" onclick="history.back()">뒤로가기</button>
+        /* 메뉴바 스타일 */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            width: 100%;
+            top: 0;
+        }
+        nav li {
+            float: left;
+        }
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav li a:hover:not(.active) {
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">메인</a></li>
+            <li><a href="Game_KR.html">게임</a></li>
+            <li><a href="Serke_KR.html">Serke 소개</a></li>
+            <li><a href="privacy.html">privacy</a></li>
+        </ul>
+    </nav>
+
+    <div style="padding: 20px;">
+        <h1>Serke 소개</h1>
+        <p>이곳에 Serke 게임에 대한 상세 정보를 넣어주세요.</p>
+        
+        <button class="back-button" onclick="history.back()">뒤로가기</button>
+    </div>
+
+</body>
+</html>
