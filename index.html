@@ -146,7 +146,7 @@
         /* 유튜브 영상 스타일 */
         .youtube-video {
             z-index: 3;
-            bottom: 216px; /* 이 값은 SerkeTrans.png와의 상대적인 위치에 따라 조정될 수 있습니다. */
+            bottom: 216px;
             position: relative;
         }
         
@@ -154,13 +154,13 @@
         .info-button {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) translateX(250px) translateY(100px); /* SerkeTrans.png 중앙 기준으로 조정 */
-            width: 160px; /* 버튼의 너비 */
+            left: 77%; /* 위치 수정 */
+            transform: translate(-50%, -50%); /* 버튼 자체의 중앙을 기준으로 정렬 */
+            width: 280px; /* 너비 수정 */
             height: 50px; /* 버튼의 높이 */
             line-height: 50px; /* 텍스트를 수직 중앙에 */
             text-align: center;
-            font-size: 18px;
+            font-size: 30px; /* 폰트 크기 수정 */
             font-weight: bold;
             background-color: #80ffeb;
             color: black;
@@ -253,7 +253,7 @@
                     class="youtube-video">
                 </iframe>
                 <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
-                <button class="info-button">Info</button>
+                <button class="info-button">게임정보</button>
             </div>
         </div>
         <div class="other-content">
