@@ -7,6 +7,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        
+        /* 상단 메뉴바 스타일 */
         nav {
             background-color: #333;
             width: 100vw;
@@ -47,7 +49,7 @@
             transition: max-height 0.5s ease-in-out;
             position: absolute;
             background-color: #333;
-            min-width: 150px; /* 드롭다운 메뉴의 최소 너비를 150px로 설정 */
+            min-width: 150px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             top: 100%;
@@ -71,6 +73,39 @@
             background-color: #555;
         }
 
+        /* 왼쪽 서브 메뉴 스타일 */
+        .left-menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px; /* 서브 메뉴의 너비 */
+            height: 100%; /* 전체 화면 높이 */
+            background-color: #222;
+            color: white;
+            padding-top: 60px; /* 상단 메뉴바와 겹치지 않게 */
+            z-index: 9;
+        }
+        .left-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .left-menu li a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        .left-menu li a:hover {
+            background-color: #555;
+        }
+        
+        /* 메인 콘텐츠 영역 스타일 */
+        .main-content {
+            margin-left: 200px; /* 왼쪽 메뉴바 너비만큼 여백을 줘서 겹치지 않게 */
+        }
         .fixed-background-section {
             background-image: url('images/your_main_background.jpg');
             background-size: cover;
@@ -88,7 +123,10 @@
             text-align: center;
         }
         .content-after-nav {
-            padding-top: 60px;
+            padding: 50px;
+            background-color: #f4f4f4;
+            min-height: 500px;
+            line-height: 1.6;
         }
         .other-content {
             padding: 50px;
@@ -105,6 +143,15 @@
     </style>
 </head>
 <body>
+    <aside class="left-menu">
+        <ul>
+            <li><a href="#">세르케 소개</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">다운로드</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </aside>
+
     <nav>
         <ul>
             <li><a href="Game_KR.html">게임</a></li>
@@ -120,11 +167,12 @@
             </li>
         </ul>
     </nav>
-    <div class="fixed-background-section">
-        <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
-        <p>저희 게임들을 만나보세요.</p>
-    </div>
-    <div class="content-after-nav">
+
+    <div class="main-content">
+        <div class="fixed-background-section">
+            <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
+            <p>저희 게임들을 만나보세요.</p>
+        </div>
         <div class="other-content">
             <h2>최신 업데이트</h2>
             <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
