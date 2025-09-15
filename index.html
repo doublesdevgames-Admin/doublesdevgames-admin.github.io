@@ -78,12 +78,20 @@
             position: fixed;
             left: 0;
             top: 0;
-            width: 200px; /* 서브 메뉴의 너비 */
-            height: 100%; /* 전체 화면 높이 */
+            width: 250px; /* 서브 메뉴 너비를 250px로 넓힘 */
+            height: 100%;
             background-color: #222;
             color: white;
-            padding-top: 60px; /* 상단 메뉴바와 겹치지 않게 */
+            padding-top: 60px;
             z-index: 9;
+        }
+        .left-menu .menu-title {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px; /* 타이틀 글자 크기 조정 */
+            font-weight: bold;
+            border-bottom: 1px solid #444;
+            pointer-events: none; /* 클릭 비활성화 */
         }
         .left-menu ul {
             list-style: none;
@@ -104,7 +112,7 @@
         
         /* 메인 콘텐츠 영역 스타일 */
         .main-content {
-            margin-left: 200px; /* 왼쪽 메뉴바 너비만큼 여백을 줘서 겹치지 않게 */
+            margin-left: 250px; /* 왼쪽 메뉴바 너비에 맞게 여백 조절 */
         }
         .fixed-background-section {
             background-image: url('images/your_main_background.jpg');
@@ -144,18 +152,16 @@
 </head>
 <body>
     <aside class="left-menu">
+        <div class="menu-title">게임 소개</div>
         <ul>
-            <li><a href="#">세르케 소개</a></li>
-            <li><a href="#">커뮤니티</a></li>
-            <li><a href="#">다운로드</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="#">이스텔리아 스토리</a></li>
+            <li><a href="#">세르케</a></li>
         </ul>
     </aside>
 
     <nav>
         <ul>
             <li><a href="Game_KR.html">게임</a></li>
-            <li><a href="Serke_KR.html">Serke 소개</a></li>
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
             
             <li class="dropdown">
