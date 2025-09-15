@@ -93,7 +93,7 @@
             margin-left: 0;
         }
         .fixed-background-section {
-            background-image: url('images/serke/Main1.png'); /* 배경 이미지 변경 */
+            background-image: url('images/serke/Main1.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -108,35 +108,47 @@
             font-size: 2em;
             text-align: center;
         }
-        
-        /* 애니메이션이 적용될 이미지들 */
-        .fixed-background-section .animated-image {
-            position: relative;
-            max-width: 80%;
-            margin-top: 20px;
+
+        /* 이미지 컨테이너 스타일 */
+        .image-overlay-container {
+            position: relative; /* 자식 요소의 기준이 됩니다 */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* SerkeTrans.png 애니메이션 */
+        /* 겹쳐질 이미지들 */
+        .image-overlay-container img {
+            position: absolute;
+            max-width: 80%;
+        }
+
+        /* SerkeTrans.png 스타일 */
         .serke-trans {
-            opacity: 0; /* 초기 투명도 0 */
+            z-index: 1; /* 뒤에 위치 */
+            opacity: 0;
+            left: 0;
             animation: fadeInSlideIn 2s ease-out forwards;
         }
-        
-        /* gamelogo.png 애니메이션 */
+
+        /* gamelogo.png 스타일 */
         .gamelogo {
-            opacity: 0; /* 초기 투명도 0 */
-            animation: fadeIn 1s ease-in forwards; /* 페이드인 애니메이션 */
-            animation-delay: 0.5s; /* 0.5초 지연 후 시작 */
+            z-index: 2; /* 위에 위치 */
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 0.5s;
         }
         
         /* 키프레임 정의 */
         @keyframes fadeInSlideIn {
             0% {
-                left: -100px;
+                transform: translateX(-100%);
                 opacity: 0;
             }
             100% {
-                left: 0;
+                transform: translateX(0);
                 opacity: 1;
             }
         }
@@ -149,7 +161,7 @@
                 opacity: 1;
             }
         }
-
+        
         .content-after-nav {
             padding: 50px;
             background-color: #f4f4f4;
@@ -191,8 +203,10 @@
         <div class="fixed-background-section">
             <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
             <p>저희 게임들을 만나보세요.</p>
-            <img src="images/serke/SerkeTrans.png" class="animated-image serke-trans" alt="Serke 로고">
-            <img src="images/serke/gamelogo.png" class="animated-image gamelogo" alt="Game 로고">
+            <div class="image-overlay-container">
+                <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
+                <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
+            </div>
         </div>
         <div class="other-content">
             <h2>최신 업데이트</h2>
