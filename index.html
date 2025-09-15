@@ -141,7 +141,6 @@
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
-            transform: translateY(-100px); /* 100px 위로 이동 */
         }
 
         /* 유튜브 영상 스타일 (현재 사용 안 함) */
@@ -154,11 +153,11 @@
         /* 키프레임 정의 */
         @keyframes slideRightAndFadeIn {
             0% {
-                transform: translateX(0) translateY(-100px); /* 애니메이션 시작 위치도 조정 */
+                transform: translateX(0) translateY(-50px); /* 애니메이션 시작 위치도 조정 */
                 opacity: 0;
             }
             100% {
-                transform: translateX(500px) translateY(-100px); /* 애니메이션 종료 위치 조정 */
+                transform: translateX(500px) translateY(-50px); /* 애니메이션 종료 위치 조정 */
                 opacity: 1;
             }
         }
@@ -166,11 +165,11 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(0); /* gamelogo.png의 원래 위치 */
+                transform: translateY(-50px); /* gamelogo.png의 원래 위치 */
             }
             to {
                 opacity: 1;
-                transform: translateY(-100px); /* 100px 위로 이동 */
+                transform: translateY(-50px); /* 50px 위로 이동 */
             }
         }
         
