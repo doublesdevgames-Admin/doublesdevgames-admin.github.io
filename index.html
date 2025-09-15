@@ -2,17 +2,28 @@
 
 <p style="color: blue;">안녕하세요!</p>
 
-<nav>
-  <ul>
-    <li><a href="https://doublesdevgames-admin.github.io/Main/index.html">메인</a></li>
-    <li>
-      <a href="#">게임</a>
-      <ul>
-        <li><a href="세르케_게임_링크_여기에_입력">세르케</a></li>
-        <li><a href="이스텔리아스토리_게임_링크_여기에_입력">이스텔리아스토리</a></li>
-      </ul>
-    </li>
-    <li><a href="serke_소개_페이지_링크_여기에_입력">Serke 소개</a></li>
-    <li><a href="privacy_페이지_링크_여기에_입력">privacy</a></li>
-  </ul>
-</nav>
+<style>
+  nav ul {
+    list-style-type: none; /* 목록의 점 없애기 */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* 배경색 */
+  }
+
+  nav li {
+    float: left; /* 메뉴 항목 가로로 정렬 */
+  }
+
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /* 밑줄 없애기 */
+  }
+
+  nav li a:hover:not(.active) {
+    background-color: #111; /* 마우스를 올렸을 때 색상 변경 */
+  }
+</style>
