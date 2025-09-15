@@ -17,8 +17,9 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            display: flex; /* Flexbox를 사용하여 정렬 */
-            align-items: center; /* 세로 중앙 정렬 */
+            display: flex; /* Flexbox를 사용해 메뉴바를 정렬 */
+            justify-content: flex-end; /* 전체 메뉴를 오른쪽 끝으로 정렬 */
+            align-items: center;
         }
         nav li {
             position: relative;
@@ -35,21 +36,17 @@
         }
         
         /* 언어 드롭다운 메뉴 스타일 */
-        .dropdown {
-            margin-left: auto; /* 이 항목만 오른쪽 끝으로 밀어냄 */
-            position: relative;
-            display: inline-block;
-        }
         .dropdown-content {
-            display: none; /* 기본적으로 숨김 */
+            overflow: hidden;
+            max-height: 0; /* 기본적으로 높이를 0으로 설정하여 숨김 */
+            transition: max-height 0.3s ease-in-out; /* 0.3초 동안 부드럽게 펼쳐지는 애니메이션 */
             position: absolute;
             background-color: #333;
             min-width: 100px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            top: 100%; /* 메뉴바 바로 아래에 위치 */
+            top: 100%;
             right: 0;
-            overflow: hidden;
         }
         .dropdown-content a {
             color: white;
@@ -61,17 +58,8 @@
         .dropdown-content a:hover {
             background-color: #111;
         }
-        .dropdown:hover .dropdown-content {
-            display: block; /* 마우스 오버 시 표시 */
-        }
-        /* 드롭다운 버튼 스타일 */
-        .dropbtn {
-            background-color: #333;
-            color: white;
-            padding: 14px 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
+        .dropdown.open .dropdown-content {
+            max-height: 200px; /* 클릭 시 높이를 늘려 펼치는 효과 */
         }
         .fixed-background-section {
             background-image: url('images/your_main_background.jpg');
@@ -109,15 +97,15 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">게임</a></li>
+            <li><a href="Game_KR.html">게임</a></li>
             <li><a href="Serke_KR.html">Serke 소개</a></li>
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
             
-            <li class="dropdown">
+            <li class="dropdown" onclick="toggleDropdown(this)">
                 <a href="javascript:void(0);" class="dropbtn">KR</a>
                 <div class="dropdown-content">
                     <a href="index_KR.html">한국어 (KR)</a>
-                    <a href="index_EN.html">영어 (EN)</a>
+                    <a href="index_US.html">영어 (US)</a>
                 </div>
             </li>
         </ul>
@@ -129,15 +117,4 @@
     <div class="content-after-nav">
         <div class="other-content">
             <h2>최신 업데이트</h2>
-            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
-            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
-        </div>
-        <div class="another-section">
-            <h2>우리의 미션</h2>
-            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
-            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
-            <p>궁금한 점이 있다면 언제든지 문의해주세요.</p>
-        </div>
-    </div>
-</body>
-</html>
+            <p>저희가 개발 중인 새로운 게임 '
