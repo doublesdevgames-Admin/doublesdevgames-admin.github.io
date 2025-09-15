@@ -4,27 +4,23 @@
     <title>DoublesDevGames - 메인</title>
     <style>
         body {
-            margin: 0; /* 기본 여백 제거 */
+            margin: 0;
             font-family: Arial, sans-serif;
         }
-
-        /* 메뉴바 스타일 (이전 답변에서 제공된 내용) */
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
             background-color: #333;
-            position: fixed; /* 메뉴바를 상단에 고정하고 싶다면 추가 */
-            width: 100%; /* 너비를 100%로 설정 */
-            top: 0; /* 상단에 붙임 */
-            z-index: 1000; /* 다른 요소 위에 오도록 */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-
         nav li {
             float: left;
         }
-
         nav li a {
             display: block;
             color: white;
@@ -32,42 +28,34 @@
             padding: 14px 16px;
             text-decoration: none;
         }
-
         nav li a:hover:not(.active) {
             background-color: #111;
         }
-
-        /* 고정 배경 이미지 섹션 스타일 */
         .fixed-background-section {
-            background-image: url('images/your_main_background.jpg'); /* 여기에 배경 이미지 경로를 넣으세요 */
+            background-image: url('images/your_main_background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* ★ 핵심: 배경 고정 ★ */
-            height: 100vh; /* 화면 전체 높이 */
+            background-attachment: fixed;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white; /* 텍스트 색상 */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 텍스트 그림자 */
-            font-size: 2em; /* 폰트 크기 */
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2em;
             text-align: center;
         }
-
-        /* 메뉴바가 고정되면 콘텐츠가 메뉴바 아래로 숨겨질 수 있으므로, 콘텐츠 시작점에 여백을 줍니다. */
         .content-after-nav {
-            padding-top: 60px; /* 메뉴바 높이만큼 여백 (메뉴바 높이에 따라 조절) */
+            padding-top: 60px;
         }
-
-        /* 다른 콘텐츠들을 위한 스타일 */
         .other-content {
             padding: 50px;
             background-color: #f4f4f4;
-            min-height: 500px; /* 스크롤을 위해 최소 높이 지정 */
+            min-height: 500px;
             line-height: 1.6;
         }
-
         .another-section {
             padding: 50px;
             background-color: #e0e0e0;
@@ -85,36 +73,21 @@
             <li><a href="privacy.html">privacy</a></li>
         </ul>
     </nav>
-
     <div class="fixed-background-section">
         <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
         <p>저희 게임들을 만나보세요.</p>
     </div>
-
     <div class="content-after-nav">
         <div class="other-content">
             <h2>최신 업데이트</h2>
             <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
             <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
-            <p>이곳에 다양한 게임 정보나 회사 소식들을 채울 수 있습니다.</p>
-            <p>스크롤을 계속 내려도 위에 고정된 배경 이미지는 그대로 보일 것입니다.</p>
-            <p>원하는 만큼 내용을 추가하여 페이지 길이를 늘릴 수 있습니다.</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
         </div>
-
         <div class="another-section">
             <h2>우리의 미션</h2>
             <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
             <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
             <p>궁금한 점이 있다면 언제든지 문의해주세요.</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
         </div>
     </div>
 </body>
