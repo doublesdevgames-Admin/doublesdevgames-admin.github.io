@@ -150,14 +150,33 @@
             position: relative;
         }
         
+        /* 새로운 Info 버튼 스타일 */
+        .info-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #80ffeb;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 4;
+        }
+
+        .info-button:hover {
+            background-color: #fff;
+        }
+        
         /* 키프레임 정의 */
         @keyframes slideRightAndFadeIn {
             0% {
-                transform: translateX(0) translateY(0); /* 애니메이션 시작 위치도 원래 위치로 */
+                transform: translateX(0) translateY(0);
                 opacity: 0;
             }
             100% {
-                transform: translateX(500px) translateY(0); /* 애니메이션 종료 위치도 원래 위치로 */
+                transform: translateX(500px) translateY(0);
                 opacity: 1;
             }
         }
@@ -165,11 +184,11 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(0); /* gamelogo.png의 원래 위치 */
+                transform: translateY(0);
             }
             to {
                 opacity: 1;
-                transform: translateY(0); /* 원래 위치 */
+                transform: translateY(0);
             }
         }
         
@@ -225,6 +244,7 @@
                     class="youtube-video">
                 </iframe>
                 <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
+                <button class="info-button">Info</button>
             </div>
         </div>
         <div class="other-content">
