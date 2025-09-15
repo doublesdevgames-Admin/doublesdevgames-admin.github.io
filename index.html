@@ -45,7 +45,7 @@
         /* 드롭다운 메뉴 스타일 */
         .dropdown-content {
             overflow: hidden;
-            max-height: 0;
+            max-height: 200px;
             transition: max-height 0.5s ease-in-out;
             position: absolute;
             background-color: #333;
@@ -63,8 +63,9 @@
             max-height: 200px;
         }
         .dropdown-content a {
+            width: 100%;
             color: white;
-            padding: 12px 16px;
+            padding: 5px 16px; /* 상하 여백을 5px로 줄임 */
             text-decoration: none;
             display: block;
             text-align: center;
