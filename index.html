@@ -21,8 +21,9 @@
         nav ul {
             list-style-type: none;
             margin: 0;
-            padding: 0 100px 0 0;
+            padding: 0 100px; /* 좌우 패딩을 100px로 통일 */
             display: flex;
+            justify-content: space-between; /* 항목들을 양 끝으로 분산 */
             align-items: center;
             height: 60px;
         }
@@ -31,7 +32,7 @@
         }
         nav li a {
             display: block;
-            color: white; /* 메뉴 글자색을 흰색으로 변경 */
+            color: white;
             text-align: center;
             padding: 0 16px;
             line-height: 60px;
@@ -39,14 +40,13 @@
             font-size: 20px;
         }
         nav li a:hover:not(.active) {
-            background-color: #80ffeb; /* 메뉴 호버 배경색 변경 */
-            color: black; /* 메뉴 호버 글자색 변경 */
+            background-color: #80ffeb;
+            color: black;
         }
 
         /* 회사 로고 스타일 */
         .logo {
-            margin-right: auto;
-            padding-left: 100px;
+            margin: 0 auto; /* 중앙 정렬 */
         }
         .logo img {
             height: 60px;
@@ -129,9 +129,9 @@
 <body>
     <nav>
         <ul>
-            <li class="logo"><img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고"></li>
             <li><a href="index.html">게임</a></li>
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
+            <li class="logo"><img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고"></li>
             <li class="dropdown">
                 <a href="#">한국어</a>
                 <div class="dropdown-content">
@@ -155,7 +155,6 @@
             <h2>우리의 미션</h2>
             <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
             <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
-            <p>궁금한 점이 있다면 언제든지 문의해주세요.</p>
         </div>
     </div>
 </body>
