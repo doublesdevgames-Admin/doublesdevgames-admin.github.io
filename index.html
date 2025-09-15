@@ -109,9 +109,25 @@
             text-align: center;
         }
         .fixed-background-section img {
-            max-width: 80%; /* 이미지 크기 조절 */
-            margin-top: 20px; /* 위쪽 여백 추가 */
+            max-width: 80%;
+            margin-top: 20px;
+            opacity: 0; /* 초기 투명도를 0으로 설정 */
+            position: relative; /* 애니메이션을 위해 필요 */
+            animation: fadeInSlideIn 2s ease-out forwards; /* 애니메이션 적용 */
         }
+        
+        /* 애니메이션 키프레임 */
+        @keyframes fadeInSlideIn {
+            0% {
+                left: -100px; /* 시작 위치: 화면 왼쪽 바깥 */
+                opacity: 0; /* 시작 투명도: 완전 투명 */
+            }
+            100% {
+                left: 0; /* 최종 위치: 원래 자리(가운데) */
+                opacity: 1; /* 최종 투명도: 완전 불투명 */
+            }
+        }
+
         .content-after-nav {
             padding: 50px;
             background-color: #f4f4f4;
