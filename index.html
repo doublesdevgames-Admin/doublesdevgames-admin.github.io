@@ -18,8 +18,9 @@
             top: 0;
             z-index: 1000;
         }
+        /* 메뉴 항목을 오른쪽으로 정렬하기 위해 float: right로 변경 */
         nav li {
-            float: left;
+            float: right;
         }
         nav li a {
             display: block;
@@ -62,15 +63,27 @@
             min-height: 700px;
             text-align: center;
         }
+        /* 언어 토글 스타일 */
+        .language-toggle {
+            float: left; /* 왼쪽 정렬을 유지하여 분리합니다 */
+            margin-right: 15px; /* 여백을 추가합니다 */
+        }
+        .language-toggle a {
+            padding: 14px 8px; /* 간결한 모양을 위해 패딩을 약간 작게 설정 */
+            font-size: 0.9em; /* 글자 크기를 작게 설정 */
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">메인</a></li>
-            <li><a href="Game_KR.html">게임</a></li>
-            <li><a href="Serke_KR.html">Serke 소개</a></li>
+            <li class="language-toggle">
+                <a href="#">KR</a> / <a href="#">EN</a>
+            </li>
             <li><a href="privacy_KR.html">privacy</a></li>
+            <li><a href="Serke_KR.html">Serke 소개</a></li>
+            <li><a href="Game_KR.html">게임</a></li>
+            <li><a href="index.html">메인</a></li>
         </ul>
     </nav>
     <div class="fixed-background-section">
