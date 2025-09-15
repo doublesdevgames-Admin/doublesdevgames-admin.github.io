@@ -6,15 +6,15 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: lightgray; /* 홈페이지 바탕색을 lightgray로 변경 */
+            background-color: lightgray;
         }
         
         /* 상단 메뉴바 스타일 */
         nav {
-            background-color: #00FF7F; /* 메뉴바 배경색을 민트색에 가까운 #00FF7F로 변경 */
+            background-color: #80ffeb; /* 메뉴바 배경색 변경 */
             width: 100vw;
             position: fixed;
-            color: black; /* 메뉴 글자색을 검은색으로 변경 */
+            color: black; /* 메뉴 글자색 변경 */
             top: 0;
             z-index: 10;
         }
@@ -31,7 +31,7 @@
         }
         nav li a {
             display: block;
-            color: black; /* 메뉴 글자색을 검은색으로 변경 */
+            color: black; /* 메뉴 글자색 변경 */
             text-align: center;
             padding: 0 16px;
             line-height: 60px;
@@ -39,7 +39,8 @@
             font-size: 20px;
         }
         nav li a:hover:not(.active) {
-            background-color: #111;
+            background-color: #333; /* 메뉴 호버 색상 변경 */
+            color: white;
         }
 
         /* 회사 로고 스타일 */
@@ -58,7 +59,7 @@
             max-height: 0;
             transition: max-height 0.5s ease-in-out;
             position: absolute;
-            background-color: #333;
+            background-color: #80ffeb; /* 드롭다운 메뉴 배경색 변경 */
             min-width: 150px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
@@ -74,14 +75,14 @@
         }
         .dropdown-content a {
             width: 100%;
-            color: white;
+            color: black; /* 드롭다운 메뉴 글자색 변경 */
             padding: 5px 16px;
             text-decoration: none;
             display: block;
             text-align: center;
         }
         .dropdown-content a:hover {
-            background-color: #ffff00 !important;
+            background-color: #fff !important; /* 드롭다운 호버 색상 변경 */
             color: #000 !important;
         }
 
