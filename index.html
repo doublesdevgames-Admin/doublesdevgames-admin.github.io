@@ -22,7 +22,6 @@
             margin: 0;
             padding: 0 100px 0 0;
             display: flex;
-            justify-content: space-between; /* 로고와 메뉴 항목들을 양 끝으로 분리 */
             align-items: center;
             height: 60px;
         }
@@ -44,7 +43,8 @@
 
         /* 회사 로고 스타일 */
         .logo {
-            order: 2; /* 로고를 두 번째 순서로 배치하여 중앙에 오도록 함 */
+            margin-right: auto; /* 로고를 왼쪽에 배치하고 나머지 항목을 오른쪽으로 밉니다. */
+            padding-left: 100px; /* 왼쪽 여백 100px 추가 */
         }
         .logo img {
             height: 60px;
@@ -127,12 +127,11 @@
 <body>
     <nav>
         <ul>
-            <li class="nav-item"><a href="index.html">게임</a></li>
-            <li class="nav-item"><a href="privacy_KR.html">개인정보처리방침</a></li>
-            
             <li class="logo"><img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고"></li>
-
-            <li class="dropdown nav-item">
+            <li><a href="index.html">게임</a></li>
+            <li><a href="privacy_KR.html">개인정보처리방침</a></li>
+            
+            <li class="dropdown">
                 <a href="#">한국어</a>
                 <div class="dropdown-content">
                     <a href="index_KR.html">한국어 (KR)</a>
