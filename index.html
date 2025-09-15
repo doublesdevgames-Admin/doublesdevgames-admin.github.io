@@ -1,459 +1,240 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-    <title>DoublesDevGames - 메인</title>
-
-    <style>
-
-        body {
-
-            margin: 0;
-
-            font-family: Arial, sans-serif;
-
-            background-color: #1f1f1f;
-
-        }
-
-        
-
-        /* 상단 메뉴바 스타일 */
-
-        nav {
-
-            background-color: #000000;
-
-            width: 100vw;
-
-            position: fixed;
-
-            top: 0;
-
-            z-index: 10;
-
-        }
-
-        nav ul {
-
-            list-style-type: none;
-
-            margin: 0;
-
-            padding: 0 100px 0 0;
-
-            display: flex;
-
-            justify-content: flex-end;
-
-            align-items: center;
-
-            height: 75px; /* 로고 높이에 맞춰 조정 */
-
-        }
-
-        nav li {
-
-            position: relative;
-
-        }
-
-        nav li a {
-
-            display: block;
-
-            color: white;
-
-            text-align: center;
-
-            padding: 0 16px;
-
-            line-height: 75px; /* 로고 높이에 맞춰 조정 */
-
-            text-decoration: none;
-
-            font-size: 20px;
-
-        }
-
-        nav li a:hover:not(.active) {
-
-            background-color: #80ffeb;
-
-            color: black;
-
-        }
-
-        
-
-        /* 회사 로고 스타일 */
-
-        .logo-container {
-
-            position: absolute;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            height: 130px; /* 로고 높이에 맞춰 조정 */
-
-        }
-
-        .logo-container img {
-
-            height: 130px;
-
-            vertical-align: middle;
-
-        }
-
-
-
-        /* 드롭다운 메뉴 스타일 */
-
-        .dropdown-content {
-
-            overflow: hidden;
-
-            max-height: 0;
-
-            transition: max-height 0.5s ease-in-out;
-
-            position: absolute;
-
-            background-color: #80ffeb;
-
-            min-width: 150px;
-
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
-            z-index: 1;
-
-            top: 100%;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-        }
-
-        .dropdown:hover .dropdown-content {
-
-            max-height: 200px;
-
-        }
-
-        .dropdown-content a {
-
-            width: 100%;
-
-            color: black;
-
-            padding: 5px 16px;
-
-            text-decoration: none;
-
-            display: block;
-
-            text-align: center;
-
-        }
-
-        .dropdown-content a:hover {
-
-            background-color: #fff !important;
-
-            color: #000 !important;
-
-        }
-
-
-
-        /* 메인 콘텐츠 영역 스타일 */
-
-        .main-content {
-
-            margin-left: 0;
-
-        }
-
-        .fixed-background-section {
-
-            background-image: url('images/serke/Main1.png');
-
-            background-size: cover;
-
-            background-position: center;
-
-            background-repeat: no-repeat;
-
-            background-attachment: fixed;
-
-            height: 100vh;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            align-items: center;
-
-            color: white;
-
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-
-            font-size: 2em;
-
-            text-align: center;
-
-        }
-
-
-
-        /* 이미지/영상 컨테이너 스타일 */
-
-        .image-overlay-container {
-
-            position: relative;
-
-            width: 100%;
-
-            height: 100%;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-        }
-
-        
-
-        /* 겹쳐질 이미지와 영상 스타일 */
-
-        .image-overlay-container > * {
-
-            position: absolute;
-
-        }
-
-        
-
-        .image-overlay-container img {
-
-            max-width: 80%;
-
-        }
-
-
-
-        /* SerkeTrans.png 스타일 */
-
-        .serke-trans {
-
-            z-index: 1;
-
-            opacity: 0;
-
-            animation: slideRightAndFadeIn 2s ease-out forwards;
-
-        }
-
-
-
-        /* gamelogo.png 스타일 */
-
-        .gamelogo {
-
-            z-index: 2;
-
-            opacity: 0;
-
-            animation: fadeIn 1s ease-in forwards;
-
-            animation-delay: 1.8s;
-
-        }
-
-
-
-        /* 유튜브 영상 스타일 */
-
-        .youtube-video {
-
-            z-index: 3; /* 가장 위에 위치하여 클릭 가능하게 함 */
-
-            bottom: 216px;
-
-            position: relative;
-
-        }
-
-        
-
-        /* 키프레임 정의 */
-
-        @keyframes slideRightAndFadeIn {
-
-            0% {
-
-                transform: translateX(0);
-
-                opacity: 0;
-
-            }
-
-            100% {
-
-                transform: translateX(500px);
-
-                opacity: 1;
-
-            }
-
-        }
-
-        
-
-        @keyframes fadeIn {
-
-            from {
-
-                opacity: 0;
-
-            }
-
-            to {
-
-                opacity: 1;
-
-            }
-
-        }
-
-        
-
-        .content-after-nav {
-
-            padding: 50px;
-
-            background-color: #f4f4f4;
-
-            min-height: 500px;
-
-            line-height: 1.6;
-
-        }
-
-        .other-content {
-
-            padding: 50px;
-
-            background-color: #f4f4f4;
-
-            min-height: 500px;
-
-            line-height: 1.6;
-
-        }
-
-        .another-section {
-
-            padding: 50px;
-
-            background-color: #e0e0e0;
-
-            min-height: 700px;
-
-            text-align: center;
-
-        }
-
-    </style>
-
+    <title>DoublesDevGames - 메인</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+        }
+        
+        /* 상단 메뉴바 스타일 */
+        nav {
+            background-color: #000000;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0 100px 0 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 130px; /* 로고 높이에 맞춰 조정 */
+        }
+        nav li {
+            position: relative;
+        }
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 0 16px;
+            line-height: 130px; /* 로고 높이에 맞춰 조정 */
+            text-decoration: none;
+            font-size: 20px;
+        }
+        nav li a:hover:not(.active) {
+            background-color: #80ffeb;
+            color: black;
+        }
+        
+        /* 회사 로고 스타일 */
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 130px; /* 로고 높이에 맞춰 조정 */
+        }
+        .logo-container img {
+            height: 130px;
+            vertical-align: middle;
+        }
+
+        /* 드롭다운 메뉴 스타일 */
+        .dropdown-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-in-out;
+            position: absolute;
+            background-color: #80ffeb;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dropdown:hover .dropdown-content {
+            max-height: 200px;
+        }
+        .dropdown-content a {
+            width: 100%;
+            color: black;
+            padding: 5px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        .dropdown-content a:hover {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        /* 메인 콘텐츠 영역 스타일 */
+        .main-content {
+            margin-left: 0;
+        }
+        .fixed-background-section {
+            background-image: url('images/serke/Main1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2em;
+            text-align: center;
+        }
+
+        /* 이미지/영상 컨테이너 스타일 */
+        .image-overlay-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* 겹쳐질 이미지와 영상 스타일 */
+        .image-overlay-container > * {
+            position: absolute;
+        }
+        
+        .image-overlay-container img {
+            max-width: 80%;
+        }
+
+        /* SerkeTrans.png 스타일 */
+        .serke-trans {
+            z-index: 1;
+            opacity: 0;
+            animation: slideRightAndFadeIn 2s ease-out forwards;
+        }
+
+        /* gamelogo.png 스타일 */
+        .gamelogo {
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1.8s;
+        }
+
+        /* 유튜브 영상 스타일 */
+        .youtube-video {
+            z-index: 3;
+            bottom: 216px;
+            position: relative;
+        }
+        
+        /* 키프레임 정의 */
+        @keyframes slideRightAndFadeIn {
+            0% {
+                transform: translateX(0);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(500px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .content-after-nav {
+            padding: 50px;
+            background-color: #f4f4f4;
+            min-height: 500px;
+            line-height: 1.6;
+        }
+        .other-content {
+            padding: 50px;
+            background-color: #f4f4f4;
+            min-height: 500px;
+            line-height: 1.6;
+        }
+        .another-section {
+            padding: 50px;
+            background-color: #e0e0e0;
+            min-height: 700px;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
-
-    <nav>
-
-        <div class="logo-container">
-
-            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
-
-        </div>
-
-        <ul>
-
-            <li><a href="index.html">게임</a></li>
-
-            <li><a href="privacy_KR.html">개인정보처리방침</a></li>
-
-            <li class="dropdown">
-
-                <a href="#">한국어</a>
-
-                <div class="dropdown-content">
-
-                    <a href="index_KR.html">한국어 (KR)</a>
-
-                    <a href="index_US.html">English (US)</a>
-
-                </div>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
-    <div class="main-content">
-
-        <div class="fixed-background-section">
-
-            <div class="image-overlay-container">
-
-                <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
-              
-                <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
-
-            </div>
-
-        </div>
-
-        <div class="other-content">
-
-            <h2>최신 업데이트</h2>
-
-            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
-
-            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
-
-        </div>
-
-        <div class="another-section">
-
-            <h2>우리의 미션</h2>
-
-            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
-
-            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
-
-        </div>
-
-    </div>
-
+    <nav>
+        <div class="logo-container">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
+        </div>
+        <ul>
+            <li><a href="index.html">게임</a></li>
+            <li><a href="privacy_KR.html">개인정보처리방침</a></li>
+            <li class="dropdown">
+                <a href="#">한국어</a>
+                <div class="dropdown-content">
+                    <a href="index_KR.html">한국어 (KR)</a>
+                    <a href="index_US.html">English (US)</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="fixed-background-section">
+            <div class="image-overlay-container">
+                <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
+                <iframe 
+                    width="840" 
+                    height="472" 
+                    src="https://www.youtube.com/embed/_XszgSQ8ko19rgbm?autoplay=1&mute=1" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    class="youtube-video">
+                </iframe>
+                <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
+            </div>
+        </div>
+        <div class="other-content">
+            <h2>최신 업데이트</h2>
+            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
+            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
+        </div>
+        <div class="another-section">
+            <h2>우리의 미션</h2>
+            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
+            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
+        </div>
+    </div>
 </body>
-
 </html>
