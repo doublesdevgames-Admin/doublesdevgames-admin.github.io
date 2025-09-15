@@ -117,7 +117,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            top: 60px;
         }
         
         /* 겹쳐질 이미지와 영상 스타일 */
@@ -144,7 +143,7 @@
             animation-delay: 1.8s;
         }
 
-        /* 유튜브 영상 스타일 (현재 사용 안 함) */
+        /* 유튜브 영상 스타일 */
         .youtube-video {
             z-index: 3;
             bottom: 216px;
@@ -215,6 +214,16 @@
         <div class="fixed-background-section">
             <div class="image-overlay-container">
                 <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
+                <iframe
+                    width="840"
+                    height="472"
+                    src="https://www.youtube.com/watch?v=B051eme12eU"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="youtube-video">
+                </iframe>
                 <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
             </div>
         </div>
