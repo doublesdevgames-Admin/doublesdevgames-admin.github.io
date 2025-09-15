@@ -191,3 +191,81 @@
         }
         
         @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-after-nav {
+            padding: 50px;
+            background-color: #f4f4f4;
+            min-height: 500px;
+            line-height: 1.6;
+        }
+        .other-content {
+            padding: 50px;
+            background-color: #f4f4f4;
+            min-height: 500px;
+            line-height: 1.6;
+        }
+        .another-section {
+            padding: 50px;
+            background-color: #e0e0e0;
+            min-height: 700px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
+        </div>
+        <ul>
+            <li><a href="index.html">게임</a></li>
+            <li><a href="privacy_KR.html">개인정보처리방침</a></li>
+            <li class="dropdown">
+                <a href="#">한국어</a>
+                <div class="dropdown-content">
+                    <a href="index_KR.html">한국어 (KR)</a>
+                    <a href="index_US.html">English (US)</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="fixed-background-section">
+            <div class="image-overlay-container">
+                <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
+                <iframe
+                    width="840"
+                    height="472"
+                    src="https://www.youtube.com/embed/B051eme12eU?si=9D6eiDm4a9PHZA4M%22%20title=%22YouTube%20video%20player?autoplay=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    class="youtube-video">
+                </iframe>
+                <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
+                <button class="info-button">Info</button>
+            </div>
+        </div>
+        <div class="other-content">
+            <h2>최신 업데이트</h2>
+            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
+            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
+        </div>
+        <div class="another-section">
+            <h2>우리의 미션</h2>
+            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
+            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
+        </div>
+    </div>
+</body>
+</html>
