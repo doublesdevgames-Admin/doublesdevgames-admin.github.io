@@ -93,7 +93,7 @@
             margin-left: 0;
         }
         .fixed-background-section {
-            background-image: url('images/your_main_background.jpg');
+            background-image: url('images/serke/Main1.png'); /* 배경 이미지 변경 */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -108,23 +108,45 @@
             font-size: 2em;
             text-align: center;
         }
-        .fixed-background-section img {
+        
+        /* 애니메이션이 적용될 이미지들 */
+        .fixed-background-section .animated-image {
+            position: relative;
             max-width: 80%;
             margin-top: 20px;
-            opacity: 0; /* 초기 투명도를 0으로 설정 */
-            position: relative; /* 애니메이션을 위해 필요 */
-            animation: fadeInSlideIn 2s ease-out forwards; /* 애니메이션 적용 */
+        }
+
+        /* SerkeTrans.png 애니메이션 */
+        .serke-trans {
+            opacity: 0; /* 초기 투명도 0 */
+            animation: fadeInSlideIn 2s ease-out forwards;
         }
         
-        /* 애니메이션 키프레임 */
+        /* gamelogo.png 애니메이션 */
+        .gamelogo {
+            opacity: 0; /* 초기 투명도 0 */
+            animation: fadeIn 1s ease-in forwards; /* 페이드인 애니메이션 */
+            animation-delay: 0.5s; /* 0.5초 지연 후 시작 */
+        }
+        
+        /* 키프레임 정의 */
         @keyframes fadeInSlideIn {
             0% {
-                left: -100px; /* 시작 위치: 화면 왼쪽 바깥 */
-                opacity: 0; /* 시작 투명도: 완전 투명 */
+                left: -100px;
+                opacity: 0;
             }
             100% {
-                left: 0; /* 최종 위치: 원래 자리(가운데) */
-                opacity: 1; /* 최종 투명도: 완전 불투명 */
+                left: 0;
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
 
@@ -169,7 +191,8 @@
         <div class="fixed-background-section">
             <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
             <p>저희 게임들을 만나보세요.</p>
-            <img src="images/serke/SerkeTrans.png" alt="Serke 로고">
+            <img src="images/serke/SerkeTrans.png" class="animated-image serke-trans" alt="Serke 로고">
+            <img src="images/serke/gamelogo.png" class="animated-image gamelogo" alt="Game 로고">
         </div>
         <div class="other-content">
             <h2>최신 업데이트</h2>
