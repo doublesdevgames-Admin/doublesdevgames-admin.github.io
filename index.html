@@ -17,10 +17,11 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: flex-end; /* 모든 메뉴를 오른쪽으로 정렬 */
         }
-        /* 메뉴 항목을 오른쪽으로 정렬하기 위해 float: right로 변경 */
         nav li {
-            float: right;
+            position: relative; /* 드롭다운 메뉴 위치 기준 */
         }
         nav li a {
             display: block;
@@ -31,6 +32,48 @@
         }
         nav li a:hover:not(.active) {
             background-color: #111;
+        }
+        
+        /* 언어 드롭다운 메뉴 스타일 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none; /* 기본적으로 숨김 */
+            position: absolute;
+            background-color: #333;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%; /* 메뉴바 바로 아래에 위치 */
+            right: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #111;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block; /* 마우스 오버 시 표시 */
+            max-height: 200px; /* 슬라이드 효과를 위한 높이 */
+        }
+        /* 드롭다운 버튼 스타일 */
+        .dropbtn {
+            background-color: #333;
+            color: white;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
         .fixed-background-section {
             background-image: url('images/your_main_background.jpg');
@@ -63,45 +106,13 @@
             min-height: 700px;
             text-align: center;
         }
-        /* 언어 토글 스타일 */
-        .language-toggle {
-            float: left; /* 왼쪽 정렬을 유지하여 분리합니다 */
-            margin-right: 15px; /* 여백을 추가합니다 */
-        }
-        .language-toggle a {
-            padding: 14px 8px; /* 간결한 모양을 위해 패딩을 약간 작게 설정 */
-            font-size: 0.9em; /* 글자 크기를 작게 설정 */
-        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li class="language-toggle">
-                <a href="#">KR</a> / <a href="#">EN</a>
-            </li>
             <li><a href="privacy_KR.html">privacy</a></li>
             <li><a href="Serke_KR.html">Serke 소개</a></li>
-            <li><a href="Game_KR.html">게임</a></li>
-            <li><a href="index.html">메인</a></li>
-        </ul>
-    </nav>
-    <div class="fixed-background-section">
-        <h1>DoublesDevGames에 오신 것을 환영합니다!</h1>
-        <p>저희 게임들을 만나보세요.</p>
-    </div>
-    <div class="content-after-nav">
-        <div class="other-content">
-            <h2>최신 업데이트</h2>
-            <p>저희가 개발 중인 새로운 게임 '세르케'의 소식을 기대해주세요!</p>
-            <p>더 자세한 내용은 Serke 소개 페이지에서 확인하실 수 있습니다.</p>
-        </div>
-        <div class="another-section">
-            <h2>우리의 미션</h2>
-            <p>혁신적인 게임 경험을 제공하여 즐거움을 선사하는 것이 우리의 목표입니다.</p>
-            <p>항상 새로운 도전을 통해 사용자들에게 잊지 못할 순간을 선물하겠습니다.</p>
-            <p>궁금한 점이 있다면 언제든지 문의해주세요.</p>
-        </div>
-    </div>
-</body>
-</html>
+            <li><a href="index.html">게임</a></li>
+            
+            <li
