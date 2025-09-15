@@ -22,7 +22,7 @@
             margin: 0;
             padding: 0 100px 0 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
             height: 60px;
         }
@@ -41,7 +41,16 @@
         nav li a:hover:not(.active) {
             background-color: #111;
         }
-        
+
+        /* 회사 로고 스타일 */
+        .logo {
+            margin: 0 40px;
+        }
+        .logo img {
+            height: 60px;
+            vertical-align: middle;
+        }
+
         /* 드롭다운 메뉴 스타일 */
         .dropdown-content {
             overflow: hidden;
@@ -121,6 +130,8 @@
             <li><a href="index.html">게임</a></li>
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
             
+            <li class="logo"><img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고"></li>
+
             <li class="dropdown">
                 <a href="#">한국어</a>
                 <div class="dropdown-content">
