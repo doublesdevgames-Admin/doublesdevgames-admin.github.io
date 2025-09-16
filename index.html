@@ -6,7 +6,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #1f1f1f;
+            background-color: #1f1f1f; /* 전체 바디 배경색 */
         }
         
         /* 상단 메뉴바 스타일 */
@@ -128,12 +128,13 @@
             max-width: 80%;
         }
 
-        /* SerkeTrans.png 스타일 */
+        /* SerkeTrans.png 스타일 (90% 크기) */
         .serke-trans {
             z-index: 1;
             opacity: 0;
             animation: slideRightAndFadeIn 2s ease-out forwards;
             transform: translateY(100px);
+            max-width: 90%; /* 크기 90%로 축소 */
         }
 
         /* gamelogo.png 스타일 */
@@ -252,14 +253,16 @@
             line-height: 1.6;
         }
         .another-section {
-            /* 배경색을 #0a0908로 변경, 여백을 20px로 조정, 글자색 흰색으로 변경 */
-            background-color: #0a0908;
+            /* 배경색을 body와 동일하게 변경, 여백 20px 50px로 조정, 좌측 정렬 */
+            background-color: #1f1f1f; /* body 배경색과 동일하게 변경 */
             color: white;
-            padding: 20px; /* 여백을 20px로 수정 */
-            text-align: center;
+            padding: 20px 50px; /* 상하 20px, 좌우 50px 여백 */
+            text-align: left; /* 텍스트 정렬을 left로 변경 */
             display: flex; /* Flexbox 적용 */
-            justify-content: center; /* 중앙 정렬 */
+            justify-content: flex-start; /* 좌측 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
             gap: 100px; /* 각 정보 사이 간격 100px */
+            min-height: auto; /* 내용에 따라 높이 자동 조절 */
         }
         
         .another-section .company-name {
