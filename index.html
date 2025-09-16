@@ -156,7 +156,7 @@
             position: absolute;
             top: 50%;
             left: 85%;
-            transform: translate(-50%, -50%);
+            transform: translate(calc(-50% + 40px), -50%); /* 우측으로 40px 이동 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -194,20 +194,20 @@
         
         /* 스토어 버튼 간격 */
         .store-button {
-            margin-top: 10px;
+            margin-top: 20px; /* 버튼 간격을 20px로 수정 */
         }
         
         /* 개별 버튼 애니메이션 */
         .info-button {
-            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation: fadeIn 1s ease-in forwards; /* 애니메이션을 fadeIn으로 변경 */
             animation-delay: 1.8s;
         }
         .steam-button {
-            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation: slideDownAndFadeIn 0.2s ease-in forwards; /* 애니메이션 속도 0.2초로 변경 */
             animation-delay: 2.3s; /* 게임 정보 버튼 이후 0.5초 지연 */
         }
         .stove-button {
-            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation: slideDownAndFadeIn 0.2s ease-in forwards; /* 애니메이션 속도 0.2초로 변경 */
             animation-delay: 2.8s; /* 스팀 버튼 이후 0.5초 지연 */
         }
         
