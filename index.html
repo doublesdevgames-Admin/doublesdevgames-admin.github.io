@@ -254,20 +254,19 @@
             line-height: 1.6;
         }
         .another-section {
-            /* 배경색을 body와 동일하게 변경, 여백 20px 50px로 조정, 좌측 정렬 */
-            background-color: #1f1f1f; /* body 배경색과 동일하게 변경 */
+            background-color: #1f1f1f;
             color: white;
-            padding: 20px 50px; /* 상하 20px, 좌우 50px 여백 */
-            text-align: left; /* 텍스트 정렬을 left로 변경 */
-            display: flex; /* Flexbox 적용 */
-            justify-content: flex-start; /* 좌측 정렬 */
-            align-items: center; /* 세로 중앙 정렬 */
-            gap: 100px; /* 각 정보 사이 간격 100px */
-            min-height: auto; /* 내용에 따라 높이 자동 조절 */
+            padding: 20px 50px;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 100px;
+            min-height: auto;
         }
         
         .another-section .company-name {
-            font-weight: bold; /* 회사명 굵게 표시 */
+            font-weight: bold;
         }
 
         /* 소셜 아이콘 컨테이너 및 아이콘 스타일 */
@@ -280,9 +279,44 @@
         .social-icons a:hover {
             color: #80ffeb;
         }
+
+        /* 좌측 고정 소셜 박스 */
+        .fixed-social-box {
+            position: fixed; /* 화면에 고정 */
+            left: 0;
+            top: 50%; /* 세로 중앙 정렬 */
+            transform: translateY(-50%);
+            width: 60px;
+            background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은색 배경 */
+            display: flex;
+            flex-direction: column; /* 아이콘을 세로로 정렬 */
+            align-items: center;
+            padding: 20px 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 20; /* 다른 요소 위에 보이도록 설정 */
+        }
+
+        .fixed-social-box a {
+            color: white;
+            font-size: 28px;
+            margin: 15px 0; /* 세로 간격 */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .fixed-social-box a:hover {
+            color: #80ffeb;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
+    <div class="fixed-social-box">
+        <a href="https://www.youtube.com/@doublesdevgames" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/doublesdevgames" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://discord.gg/doublesdevgames" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
+
     <nav>
         <div class="logo-container">
             <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
