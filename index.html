@@ -144,11 +144,23 @@
             animation-delay: 1.8s;
         }
 
+        /* 유튜브 플레이어 반응형 컨테이너 */
+        .youtube-wrapper {
+            position: absolute;
+            width: 100%;
+            max-width: 840px; /* 원래 가로 크기 제한 */
+            padding-top: 56.19%; /* 16:9 비율 유지 */
+            bottom: 216px; /* 원래 위치 유지 */
+        }
+
         /* 유튜브 영상 스타일 */
         .youtube-video {
             z-index: 3;
-            bottom: 216px;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         /* 버튼 컨테이너 스타일 */
@@ -292,16 +304,18 @@
         <div class="fixed-background-section">
             <div class="image-overlay-container">
                 <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
-                <iframe
-                    width="840"
-                    height="472"
-                    src="https://www.youtube.com/embed/B051eme12eU?si=9D6eiDm4a9PHZA4M%22%20title=%22YouTube%20video%20player?autoplay=1"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    class="youtube-video">
-                </iframe>
+                
+                <div class="youtube-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/B051eme12eU?si=9D6eiDm4a9PHZA4M%22%20title=%22YouTube%20video%20player?autoplay=1"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        class="youtube-video">
+                    </iframe>
+                </div>
+                
                 <img src="images/serke/gamelogo.png" class="gamelogo" alt="게임 로고">
 
                 <div class="button-container">
