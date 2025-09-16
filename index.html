@@ -25,28 +25,29 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            height: 75px; /* 로고 높이에 맞춰 조정 */
+            height: 75px;
         }
         nav li {
             position: relative;
         }
+        
         /* 메인 메뉴 항목 스타일 (우측으로 기울어짐) */
         nav li a {
             display: block;
             color: white;
             text-align: center;
             padding: 0 16px;
-            line-height: 75px; /* 로고 높이에 맞춰 조정 */
+            line-height: 75px;
             text-decoration: none;
             font-size: 20px;
             
             /* 버튼 우측으로 기울이기 */
-            transform: skewX(15deg); /* 오른쪽으로 15도 기울임 */
+            transform: skewX(15deg); 
         }
         /* 메인 메뉴 항목 텍스트는 다시 수직으로 */
         nav li a span {
             display: block;
-            transform: skewX(-15deg); /* 글자 기울기를 되돌림 */
+            transform: skewX(-15deg);
         }
         nav li a:hover:not(.active) {
             background-color: #80ffeb;
@@ -58,7 +59,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            height: 130px; /* 로고 높이에 맞춰 조정 */
+            height: 130px;
         }
         .logo-container img {
             height: 130px;
@@ -85,6 +86,7 @@
         .dropdown:hover .dropdown-content {
             max-height: 200px;
         }
+        
         /* 드롭다운 메뉴 항목 스타일 (우측으로 기울어짐) */
         .dropdown-content a {
             width: 100%;
@@ -95,12 +97,12 @@
             text-align: center;
             
             /* 드롭다운 메뉴 항목도 우측으로 기울이기 */
-            transform: skewX(15deg); /* 오른쪽으로 15도 기울임 */
+            transform: skewX(15deg);
         }
         /* 드롭다운 메뉴 항목 텍스트는 다시 수직으로 */
         .dropdown-content a span {
             display: block;
-            transform: skewX(-15deg); /* 글자 기울기를 되돌림 */
+            transform: skewX(-15deg);
         }
         .dropdown-content a:hover {
             background-color: #fff !important;
@@ -157,7 +159,7 @@
             left: 0;
             transform: translateY(-50%) translateY(50px);
             max-width: 68%;
-            filter: brightness(100%); /* 밝기 원래대로 */
+            filter: brightness(100%);
         }
 
         /* Enemy3.png 스타일 (위치, 밝기, 크기 수정) */
@@ -167,10 +169,10 @@
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 2s;
             top: 50%;
-            left: 5%; /* 현재보다 왼쪽으로 200px 이상 이동 (20%에서 5%로) */
-            transform: translateY(-50%) scaleX(-1); /* 세로 중앙 정렬 및 좌우 반전 */
-            max-width: 21%; /* 현재(30%)보다 30% 작게 (30% * 0.7 = 21%) */
-            filter: brightness(90%); /* 0.8 -> 0.9로 밝기 증가 */
+            left: 5%;
+            transform: translateY(-50%) scaleX(-1);
+            max-width: 21%;
+            filter: brightness(90%);
         }
 
         /* gamelogo.png 스타일 */
