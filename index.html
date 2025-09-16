@@ -154,24 +154,29 @@
         .info-button {
             position: absolute;
             top: 50%;
-            left: 85%; /* 위치 수정 */
-            transform: translate(-50%, -50%); /* 버튼 자체의 중앙을 기준으로 정렬 */
-            width: 280px; /* 너비 수정 */
-            height: 50px; /* 버튼의 높이 */
-            line-height: 50px; /* 텍스트를 수직 중앙에 */
+            left: 85%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 50px;
+            line-height: 50px;
             text-align: center;
-            font-size: 30px; /* 폰트 크기 수정 */
+            font-size: 30px;
             font-weight: bold;
             background-color: #80ffeb;
             color: black;
             border: none;
             cursor: pointer;
-            z-index: 5; /* SerkeTrans.png (z-index: 1) 위에 보이도록 */
+            z-index: 5;
+            opacity: 0; /* 초기 투명도 설정 */
             
             /* 육각형 모양 정의 */
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
-            -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%); /* 웹킷 브라우저 지원 */
-            transition: background-color 0.3s ease; /* 호버 효과 */
+            -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+            transition: background-color 0.3s ease;
+
+            /* gamelogo와 동일한 애니메이션 적용 */
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1.8s;
         }
 
         .info-button:hover {
@@ -185,7 +190,7 @@
                 opacity: 0;
             }
             100% {
-                transform: translateX(500px) translateY(0); /* SerkeTrans.png의 최종 위치 */
+                transform: translateX(500px) translateY(0);
                 opacity: 1;
             }
         }
@@ -227,10 +232,15 @@
             <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
         </div>
         <ul>
-            <li><a href="index.html">게임</a></li>
+            <li class="dropdown">
+                <a href="#">게임</a>
+                <div class="dropdown-content">
+                    <a href="#">세르케</a>
+                </div>
+            </li>
             <li><a href="privacy_KR.html">개인정보처리방침</a></li>
             <li class="dropdown">
-                <a href="#">한국어</a>
+                <a href="#">언어</a>
                 <div class="dropdown-content">
                     <a href="index_KR.html">한국어 (KR)</a>
                     <a href="index_US.html">English (US)</a>
