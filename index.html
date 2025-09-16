@@ -30,6 +30,7 @@
         nav li {
             position: relative;
         }
+        /* 메인 메뉴 항목 스타일 (우측으로 기울어짐) */
         nav li a {
             display: block;
             color: white;
@@ -39,14 +40,13 @@
             text-decoration: none;
             font-size: 20px;
             
-            /* 버튼 기울이기 */
-            transform: skewX(20deg); /* 이 값을 조절하여 기울기 각도 변경 */
+            /* 버튼 우측으로 기울이기 */
+            transform: skewX(15deg); /* 오른쪽으로 15도 기울임 */
         }
+        /* 메인 메뉴 항목 텍스트는 다시 수직으로 */
         nav li a span {
             display: block;
-            
-            /* 글자 다시 원래대로 돌리기 */
-            transform: skewX(-20deg);
+            transform: skewX(-15deg); /* 글자 기울기를 되돌림 */
         }
         nav li a:hover:not(.active) {
             background-color: #80ffeb;
@@ -65,7 +65,7 @@
             vertical-align: middle;
         }
 
-        /* 드롭다운 메뉴 스타일 */
+        /* 드롭다운 메뉴 컨테이너 스타일 */
         .dropdown-content {
             overflow: hidden;
             max-height: 0;
@@ -85,6 +85,7 @@
         .dropdown:hover .dropdown-content {
             max-height: 200px;
         }
+        /* 드롭다운 메뉴 항목 스타일 (우측으로 기울어짐) */
         .dropdown-content a {
             width: 100%;
             color: black;
@@ -93,13 +94,13 @@
             display: block;
             text-align: center;
             
-            /* 드롭다운 메뉴 항목도 기울이기 */
-            transform: skewX(20deg);
+            /* 드롭다운 메뉴 항목도 우측으로 기울이기 */
+            transform: skewX(15deg); /* 오른쪽으로 15도 기울임 */
         }
+        /* 드롭다운 메뉴 항목 텍스트는 다시 수직으로 */
         .dropdown-content a span {
             display: block;
-            /* 드롭다운 메뉴 항목 글자 원래대로 돌리기 */
-            transform: skewX(-20deg);
+            transform: skewX(-15deg); /* 글자 기울기를 되돌림 */
         }
         .dropdown-content a:hover {
             background-color: #fff !important;
@@ -147,7 +148,7 @@
             max-width: 100%;
         }
 
-        /* SerkeTrans.png 스타일 (70% 크기) */
+        /* SerkeTrans.png 스타일 (밝기 원상 복구) */
         .image-overlay-container .serke-trans {
             z-index: 1;
             opacity: 0;
@@ -156,20 +157,20 @@
             left: 0;
             transform: translateY(-50%) translateY(50px);
             max-width: 68%;
-            filter: brightness(50%);
+            filter: brightness(100%); /* 밝기 원래대로 */
         }
 
-        /* Enemy3.png 스타일 */
+        /* Enemy3.png 스타일 (위치, 밝기, 크기 수정) */
         .enemy-image {
-            z-index: 0; /* gamelogo.png (z-index: 2) 뒤에 오도록 0 또는 1로 설정 */
+            z-index: 0;
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
-            animation-delay: 2s; /* SerkeTrans.png 애니메이션 (2초)와 동시에 끝나도록 */
+            animation-delay: 2s;
             top: 50%;
-            left: 20%; /* 좌측에 배치 */
+            left: 5%; /* 현재보다 왼쪽으로 200px 이상 이동 (20%에서 5%로) */
             transform: translateY(-50%) scaleX(-1); /* 세로 중앙 정렬 및 좌우 반전 */
-            max-width: 30%; /* 원하는 크기로 조절 */
-            filter: brightness(30%); /* 20% 더 어둡게 */
+            max-width: 21%; /* 현재(30%)보다 30% 작게 (30% * 0.7 = 21%) */
+            filter: brightness(90%); /* 0.8 -> 0.9로 밝기 증가 */
         }
 
         /* gamelogo.png 스타일 */
