@@ -150,13 +150,22 @@
             bottom: 216px;
             position: relative;
         }
-        
-        /* Info Button Style (Hexagon and Center Alignment) */
-        .info-button {
+
+        /* Button Container Style */
+        .button-container {
             position: absolute;
             top: 50%;
             left: 85%;
             transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+        }
+
+        /* Individual Button Style */
+        .info-button,
+        .store-button {
             width: 280px;
             height: 50px;
             line-height: 50px;
@@ -167,24 +176,42 @@
             color: black;
             border: none;
             cursor: pointer;
-            z-index: 5;
+            text-decoration: none;
+            display: block;
             opacity: 0;
             
             /* Hexagon Shape Definition */
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             transition: background-color 0.3s ease;
-
-            /* Apply Same Animation as gamelogo */
-            animation: fadeIn 1s ease-in forwards;
-            animation-delay: 1.8s;
         }
-
-        .info-button:hover {
+        
+        /* Button Hover Effect */
+        .info-button:hover,
+        .store-button:hover {
             background-color: #fff;
         }
         
-        /* Keyframe Definition */
+        /* Spacing for store buttons */
+        .store-button {
+            margin-top: 10px;
+        }
+        
+        /* Individual Button Animations */
+        .info-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation-delay: 1.8s;
+        }
+        .steam-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation-delay: 2.3s; /* game info 버튼 이후 0.5초 지연 */
+        }
+        .stove-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation-delay: 2.8s; /* steam 버튼 이후 0.5초 지연 */
+        }
+        
+        /* Keyframe Definitions */
         @keyframes slideRightAndFadeIn {
             0% {
                 transform: translateX(0) translateY(100px);
@@ -199,7 +226,17 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(0);
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* New slide-down animation */
+        @keyframes slideDownAndFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -214,7 +251,6 @@
             line-height: 1.6;
         }
         .another-section {
-            /* Change background color to #0a0908, reduce bottom padding by half, change font color to white */
             padding: 50px 50px 25px 50px;
             background-color: #0a0908;
             color: white;
@@ -258,7 +294,12 @@
                     class="youtube-video">
                 </iframe>
                 <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game Logo">
-                <button class="info-button">Game Info</button>
+
+                <div class="button-container">
+                    <button class="info-button">Game Info</button>
+                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">스팀상점</a>
+                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">스토브</a>
+                </div>
             </div>
         </div>
         <div class="another-section">
