@@ -135,7 +135,7 @@
             opacity: 0;
             animation: slideRightAndFadeIn 2s ease-out forwards;
             transform: translateY(100px);
-            max-width: 36%; /* 기존 72%에서 50% 축소 */
+            max-width: 36%;
         }
 
         /* gamelogo.png 스타일 */
@@ -221,7 +221,7 @@
                 opacity: 0;
             }
             100% {
-                transform: translateX(500px) translateY(100px);
+                transform: translateX(50%) translateY(100px); /* 고정 픽셀(500px)을 퍼센트(50%)로 변경 */
                 opacity: 1;
             }
         }
