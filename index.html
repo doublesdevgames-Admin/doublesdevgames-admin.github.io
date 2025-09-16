@@ -139,6 +139,20 @@
             left: 0;
             transform: translateY(-50%) translateY(50px);
             max-width: 68%;
+            filter: brightness(50%);
+        }
+
+        /* Enemy3.png 스타일 */
+        .enemy-image {
+            z-index: 0; /* gamelogo.png (z-index: 2) 뒤에 오도록 0 또는 1로 설정 */
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 2s; /* SerkeTrans.png 애니메이션 (2초)와 동시에 끝나도록 */
+            top: 50%;
+            left: 20%; /* 좌측에 배치 */
+            transform: translateY(-50%) scaleX(-1); /* 세로 중앙 정렬 및 좌우 반전 */
+            max-width: 30%; /* 원하는 크기로 조절 */
+            filter: brightness(30%); /* 20% 더 어둡게 */
         }
 
         /* gamelogo.png 스타일 */
@@ -228,146 +242,3 @@
                 opacity: 1;
             }
         }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* 새로운 아래로 내려가는 애니메이션 */
-        @keyframes slideDownAndFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .other-content {
-            padding: 50px;
-            background-color: #f4f4f4;
-            min-height: 500px;
-            line-height: 1.6;
-        }
-        .another-section {
-            background-color: #1f1f1f;
-            color: white;
-            padding: 10px 50px;
-            text-align: left;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 100px;
-            min-height: auto;
-        }
-        
-        .another-section .company-name {
-            font-weight: bold;
-        }
-
-        /* 소셜 아이콘 컨테이너 및 아이콘 스타일 (하단 섹션) */
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin-right: 20px;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #80ffeb;
-        }
-
-        /* 좌측 고정 소셜 박스 */
-        .fixed-social-box {
-            position: fixed;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 72px;
-            background-color: #80ffeb;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 24px 0;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            z-index: 20;
-        }
-
-        .fixed-social-box a {
-            color: #000;
-            font-size: 34px;
-            margin: 18px 0;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .fixed-social-box a:hover {
-            color: #fff;
-            transform: scale(1.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="fixed-social-box">
-        <a href="https://www.youtube.com/@doublesdevgames" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://x.com/doubleSgames" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://discord.gg/Pzmnjd5s36" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-    </div>
-
-    <nav>
-        <div class="logo-container">
-            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
-        </div>
-        <ul>
-            <li class="dropdown">
-                <a href="#">게임</a>
-                <div class="dropdown-content">
-                    <a href="#">세르케</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#">언어</a>
-                <div class="dropdown-content">
-                    <a href="index.html">한국어 (KR)</a>
-                    <a href="index_US.html">English (US)</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="main-content">
-        <div class="fixed-background-section">
-            <div class="image-overlay-container">
-                <img src="images/serke/SerkeTrans.png" class="serke-trans" alt="Serke 로고">
-                <iframe
-                    width="840"
-                    height="472"
-                    src="https://www.youtube.com/embed/B051eme12eU?si=9D6eiDm4a9PHZA4M%22%20title=%22YouTube%20video%20player?autoplay=1"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    class="youtube-video">
-                </iframe>
-                <img src="images/serke/gamelogo.png" class="gamelogo" alt="게임 로고">
-
-                <div class="button-container">
-                    <button class="info-button">게임정보</button>
-                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">스팀상점</a>
-                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">스토브</a>
-                </div>
-            </div>
-        </div>
-        <div class="another-section">
-            <span class="company-name">디에스게임즈</span>
-            <span>doublesdevgames@gmail.com</span>
-            <span>인천시 부평구 경인로 890번길 57</span>
-        </div>
-    </div>
-</body>
-</html>
