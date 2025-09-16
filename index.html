@@ -93,8 +93,13 @@
             display: block;
             text-align: center;
             
-            /* 드롭다운 메뉴 항목은 기울이지 않음 */
-            transform: none; 
+            /* 드롭다운 메뉴 항목도 기울이기 */
+            transform: skewX(20deg);
+        }
+        .dropdown-content a span {
+            display: block;
+            /* 드롭다운 메뉴 항목 글자 원래대로 돌리기 */
+            transform: skewX(-20deg);
         }
         .dropdown-content a:hover {
             background-color: #fff !important;
