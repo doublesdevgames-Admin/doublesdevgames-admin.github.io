@@ -150,13 +150,22 @@
             bottom: 216px;
             position: relative;
         }
-        
-        /* Info 버튼 스타일 (육각형 및 중앙 정렬) */
-        .info-button {
+
+        /* 버튼 컨테이너 스타일 */
+        .button-container {
             position: absolute;
             top: 50%;
             left: 85%;
             transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+        }
+
+        /* 개별 버튼 스타일 */
+        .info-button,
+        .store-button {
             width: 280px;
             height: 50px;
             line-height: 50px;
@@ -167,21 +176,39 @@
             color: black;
             border: none;
             cursor: pointer;
-            z-index: 5;
+            text-decoration: none;
+            display: block;
             opacity: 0;
             
             /* 육각형 모양 정의 */
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             transition: background-color 0.3s ease;
-
-            /* gamelogo와 동일한 애니메이션 적용 */
-            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        /* 버튼 호버 효과 */
+        .info-button:hover,
+        .store-button:hover {
+            background-color: #fff;
+        }
+        
+        /* 스토어 버튼 간격 */
+        .store-button {
+            margin-top: 10px;
+        }
+        
+        /* 개별 버튼 애니메이션 */
+        .info-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
         }
-
-        .info-button:hover {
-            background-color: #fff;
+        .steam-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation-delay: 2.3s; /* 게임 정보 버튼 이후 0.5초 지연 */
+        }
+        .stove-button {
+            animation: slideDownAndFadeIn 1s ease-in forwards;
+            animation-delay: 2.8s; /* 스팀 버튼 이후 0.5초 지연 */
         }
         
         /* 키프레임 정의 */
@@ -199,7 +226,17 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(0);
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* 새로운 아래로 내려가는 애니메이션 */
+        @keyframes slideDownAndFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -257,8 +294,13 @@
                     allowfullscreen
                     class="youtube-video">
                 </iframe>
-                <img src="images/serke/gamelogo.png" class="gamelogo" alt="Game 로고">
-                <button class="info-button">게임정보</button>
+                <img src="images/serke/gamelogo.png" class="gamelogo" alt="게임 로고">
+
+                <div class="button-container">
+                    <button class="info-button">게임정보</button>
+                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">스팀상점</a>
+                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">스토브</a>
+                </div>
             </div>
         </div>
         <div class="another-section">
