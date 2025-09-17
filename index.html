@@ -177,7 +177,7 @@
             transform: translate(calc(-50% + 40px), calc(-50% + 80px));
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start; /* 버튼과 아이콘이 왼쪽 정렬되도록 변경 */
             z-index: 5;
         }
         
@@ -197,7 +197,7 @@
             align-items: center;
             opacity: 0;
             position: relative;
-            background: none;
+            background: none; /* 배경을 가상 요소로 대체하기 위해 제거 */
         }
 
         /* 버튼 배경 모양을 위한 가상 요소 */
@@ -206,20 +206,13 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 23px;
+            width: 82%;
             height: 100%;
             background-color: #80ffeb;
             transform: skewX(-45deg);
             z-index: -1;
             transition: background-color 0.3s ease;
-        }
-
-        /* 텍스트가 똑바로 보이도록 역방향 기울기 적용 */
-        .info-button span,
-        .store-button span {
-            display: block;
-            transform: skewX(45deg);
         }
 
         .store-button {
@@ -236,26 +229,14 @@
         /* CI(아이콘) 스타일 */
         .button-icon {
             position: absolute;
-            left: calc(0px - 30px - 5px); /* 버튼의 0px에서 왼쪽으로 CI 넓이와 간격만큼 이동 */
+            left: -35px; /* 버튼 왼쪽 바깥으로 5px 띄우기 (버튼 넓이 280px + CI 넓이 30px + 간격 5px) */
             top: 50%;
             transform: translateY(-50%);
             z-index: 2;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #000;
-            background-color: #80ffeb;
-            transform: skewX(-45deg);
         }
 
-        /* 아이콘 안의 CI는 다시 역방향으로 기울여서 똑바로 보이게 함 */
-        .button-icon i {
-            transform: skewX(45deg);
-        }
-
-        .info-button {
+        .info-button,
+        .button-icon {
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
         }
@@ -394,15 +375,15 @@
 
                 <div class="button-container">
                     <button class="info-button">
-                        <span>게임정보</span>
+                        게임정보
                     </button>
                     <span class="button-icon"><i class="fas fa-info-circle"></i></span>
                     <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">
-                        <span>스팀</span>
+                        스팀
                     </a>
                     <span class="button-icon"><i class="fab fa-steam"></i></span>
                     <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">
-                        <span>스토브</span>
+                        스토브
                     </a>
                     <span class="button-icon"><i class="fas fa-shopping-cart"></i></span>
                 </div>
