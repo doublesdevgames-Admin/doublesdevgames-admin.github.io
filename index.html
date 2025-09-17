@@ -88,11 +88,13 @@
             text-decoration: none;
             display: block;
             text-align: center;
-            transform: skewX(0);
+            /* 드롭다운 항목에 기울기 적용 */
+            transform: skewX(-15deg);
         }
         .dropdown-content a span {
             display: block;
-            transform: skewX(0);
+            /* 드롭다운 텍스트는 다시 수직으로 */
+            transform: skewX(15deg);
         }
         .dropdown-content a:hover {
             background-color: #fff !important;
@@ -188,8 +190,8 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: flex; /* flexbox 사용 */
-            justify-content: center; /* 텍스트와 아이콘 중앙 정렬 */
+            display: flex;
+            justify-content: center;
             align-items: center;
             opacity: 0;
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
@@ -198,7 +200,7 @@
         }
 
         .info-button i, .store-button i {
-            margin-right: 10px; /* 아이콘과 텍스트 사이 간격 */
+            margin-right: 10px;
         }
 
         .info-button:hover,
