@@ -177,7 +177,7 @@
             transform: translate(calc(-50% + 40px), calc(-50% + 80px));
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* 버튼과 아이콘이 왼쪽 정렬되도록 변경 */
             z-index: 5;
         }
         
@@ -188,7 +188,6 @@
             height: 50px;
             font-size: 30px;
             font-weight: bold;
-            background-color: #80ffeb;
             color: black;
             border: none;
             cursor: pointer;
@@ -197,67 +196,72 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            position: relative; /* 자식 요소(CI) 위치 조정을 위한 기준점 */
-            /* 상단이 우측으로 기울어진 사각형 모양 적용 */
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            transform: skewX(10deg);
-            transition: background-color 0.3s ease;
-        }
-        
-        /* 텍스트가 기울어지지 않도록 역방향 기울기 적용 */
-        .button-text {
-            transform: skewX(-10deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
+            background: none; /* 배경을 가상 요소로 대체하기 위해 제거 */
         }
 
-        /* CI 위치 조정 */
-        .button-icon {
+        /* 버튼 배경 모양을 위한 가상 요소 */
+        .info-button::before,
+        .store-button::before {
+            content: '';
             position: absolute;
-            left: -30px; /* 버튼 왼쪽 밖으로 띄우는 값 */
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            color: #80ffeb;
-            background-color: black;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #80ffeb;
             transform: skewX(10deg);
-        }
-
-        /* 아이콘 안의 CI는 다시 역방향으로 기울여서 똑바로 보이게 함 */
-        .button-icon i {
-            transform: skewX(-10deg);
+            z-index: -1;
+            transition: background-color 0.3s ease;
         }
 
         .store-button {
             margin-top: 20px;
             text-shadow: none;
         }
-        .info-button:hover,
-        .store-button:hover {
+
+        /* 호버 효과 */
+        .info-button:hover::before,
+        .store-button:hover::before {
             background-color: #fff;
         }
 
-        /* --- 애니메이션 키프레임 --- */
-        .info-button {
+        /* CI(아이콘) 스타일 */
+        .button-icon {
+            position: absolute;
+            left: -35px; /* 버튼 왼쪽 바깥으로 5px 띄우기 (버튼 넓이 280px + CI 넓이 30px + 간격 5px) */
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .info-button,
+        .button-icon {
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
         }
+
         .steam-button {
             animation: slideDownAndFadeIn 0.2s ease-in forwards;
             animation-delay: 2.3s;
         }
+
         .stove-button {
             animation: slideDownAndFadeIn 0.2s ease-in forwards;
             animation-delay: 2.8s;
         }
+
+        /* 스팀 및 스토브 아이콘 위치 조정 */
+        .store-button.steam-button + .button-icon {
+            animation: fadeIn 0.2s ease-in forwards;
+            animation-delay: 2.3s;
+        }
+        .store-button.stove-button + .button-icon {
+            animation: fadeIn 0.2s ease-in forwards;
+            animation-delay: 2.8s;
+        }
         
+        /* --- 애니메이션 키프레임 --- */
         @keyframes slideRightAndFadeIn {
             0% { left: -100px; opacity: 0; }
             100% { left: 50%; opacity: 1; }
@@ -371,15 +375,15 @@
 
                 <div class="button-container">
                     <button class="info-button">
-                        <span class="button-text">게임정보</span>
+                        게임정보
                     </button>
                     <span class="button-icon"><i class="fas fa-info-circle"></i></span>
                     <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">
-                        <span class="button-text">스팀</span>
+                        스팀
                     </a>
                     <span class="button-icon"><i class="fab fa-steam"></i></span>
                     <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">
-                        <span class="button-text">스토브</span>
+                        스토브
                     </a>
                     <span class="button-icon"><i class="fas fa-shopping-cart"></i></span>
                 </div>
