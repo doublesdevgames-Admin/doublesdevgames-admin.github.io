@@ -191,9 +191,9 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: block; /* 텍스트 중앙 정렬을 위해 flex에서 block으로 변경 */
-            text-align: center; /* 텍스트를 중앙에 정렬 */
-            position: relative; /* 아이콘 위치 지정의 기준점 */
+            display: block;
+            text-align: center;
+            position: relative;
             opacity: 0;
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
@@ -201,9 +201,8 @@
         }
         
         .info-button i, .store-button i {
-            /* 아이콘을 버튼 내에서 절대 위치로 고정 */
             position: absolute;
-            left: 20px; /* 왼쪽 여백 조절 (원하는 값으로 변경 가능) */
+            left: 15px; /* CI 위치를 15px로 변경 */
             top: 50%;
             transform: translateY(-50%);
         }
