@@ -89,7 +89,8 @@
             display: block;
             text-align: center;
             transform: skewX(0);
-            border-bottom: 2px solid #000;
+            /* 투명한 테두리로 변경 */
+            border-bottom: 2px solid transparent; 
             box-sizing: border-box;
         }
         .dropdown-content a:last-child {
@@ -202,7 +203,7 @@
         
         .info-button i, .store-button i {
             position: absolute;
-            left: 15px; /* CI 위치를 15px로 변경 */
+            left: 15px; 
             top: 50%;
             transform: translateY(-50%);
         }
