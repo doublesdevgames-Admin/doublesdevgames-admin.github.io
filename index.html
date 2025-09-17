@@ -180,6 +180,8 @@
             align-items: center;
             z-index: 5;
         }
+        
+        /* 버튼 공통 스타일 */
         .info-button,
         .store-button {
             width: 280px;
@@ -191,38 +193,48 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: flex; 
-            justify-content: center; 
+            display: flex;
+            justify-content: center;
             align-items: center;
             opacity: 0;
-            position: relative; /* CI 위치 조정을 위한 기준점 */
-
-            /* 육각형 모양 제거 및 새로운 사각형 모양 적용 */
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* 기본 사각형 */
-            transform: skewX(10deg); /* 우측으로 기울기 (조절 가능) */
-            
+            position: relative; /* 자식 요소(CI) 위치 조정을 위한 기준점 */
+            /* 상단이 우측으로 기울어진 사각형 모양 적용 */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transform: skewX(10deg);
             transition: background-color 0.3s ease;
         }
-
+        
         /* 텍스트가 기울어지지 않도록 역방향 기울기 적용 */
-        .info-button .button-text,
-        .store-button .button-text {
-            transform: skewX(-10deg); /* 버튼 기울기의 역방향으로 텍스트 기울기 적용 */
-            display: flex; /* 텍스트 내 CI와 글자 정렬을 위해 flex 유지 */
+        .button-text {
+            transform: skewX(-10deg);
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding-left: 30px; /* CI 공간 확보 */
         }
-        
+
         /* CI 위치 조정 */
-        .button-text i {
+        .button-icon {
             position: absolute;
-            left: -30px; /* 버튼 왼쪽 밖으로 5px 정도 띄워서 그리기 (이 값은 조절 가능) */
+            left: -30px; /* 버튼 왼쪽 밖으로 띄우는 값 */
             top: 50%;
-            transform: translateY(-50%) skewX(-10deg); /* 텍스트의 역방향 기울기를 상쇄 */
-            font-size: 30px; /* 아이콘 크기 유지 */
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #80ffeb;
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transform: skewX(10deg);
         }
-        
+
+        /* 아이콘 안의 CI는 다시 역방향으로 기울여서 똑바로 보이게 함 */
+        .button-icon i {
+            transform: skewX(-10deg);
+        }
+
         .store-button {
             margin-top: 20px;
             text-shadow: none;
@@ -231,6 +243,8 @@
         .store-button:hover {
             background-color: #fff;
         }
+
+        /* --- 애니메이션 키프레임 --- */
         .info-button {
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
@@ -244,7 +258,6 @@
             animation-delay: 2.8s;
         }
         
-        /* --- 애니메이션 키프레임 --- */
         @keyframes slideRightAndFadeIn {
             0% { left: -100px; opacity: 0; }
             100% { left: 50%; opacity: 1; }
@@ -358,14 +371,17 @@
 
                 <div class="button-container">
                     <button class="info-button">
-                        <span class="button-text"><i class="fas fa-info-circle"></i> 게임정보</span>
+                        <span class="button-text">게임정보</span>
                     </button>
+                    <span class="button-icon"><i class="fas fa-info-circle"></i></span>
                     <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">
-                        <span class="button-text"><i class="fab fa-steam"></i> 스팀</span>
+                        <span class="button-text">스팀</span>
                     </a>
+                    <span class="button-icon"><i class="fab fa-steam"></i></span>
                     <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">
-                        <span class="button-text"><i class="fas fa-shopping-cart"></i> 스토브</span>
+                        <span class="button-text">스토브</span>
                     </a>
+                    <span class="button-icon"><i class="fas fa-shopping-cart"></i></span>
                 </div>
             </div>
         </div>
