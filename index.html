@@ -180,12 +180,24 @@
             align-items: flex-start;
             z-index: 5;
         }
+
+        /* 버튼 묶음 컨테이너 */
+        .button-wrapper {
+            position: relative; /* 아이콘의 위치 기준점 */
+            width: 260px;
+            height: 50px;
+            margin-bottom: 20px; /* 버튼 간 간격 */
+            opacity: 0; /* 초기 투명도 설정 */
+        }
+        .button-wrapper:last-child {
+            margin-bottom: 0;
+        }
         
         /* 버튼 공통 스타일 */
         .info-button,
         .store-button {
-            width: 260px;
-            height: 50px;
+            width: 100%;
+            height: 100%;
             font-size: 30px;
             font-weight: bold;
             color: black;
@@ -195,9 +207,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            position: relative;
             background: none;
+            position: relative;
+            z-index: 1;
         }
 
         /* 버튼 배경 모양을 위한 가상 요소 */
@@ -216,7 +228,6 @@
         }
 
         .store-button {
-            margin-top: 20px;
             text-shadow: none;
         }
 
@@ -254,28 +265,16 @@
         }
 
         /* 애니메이션 적용 */
-        .info-button {
+        .info-button-wrapper {
             animation: fadeIn 1s ease-in forwards;
             animation-delay: 1.8s;
         }
-        .info-button + .button-icon {
-            animation: fadeIn 1s ease-in forwards;
-            animation-delay: 1.8s;
-        }
-        .steam-button {
+        .steam-button-wrapper {
             animation: slideDownAndFadeIn 0.2s ease-in forwards;
             animation-delay: 2.3s;
         }
-        .steam-button + .button-icon {
-            animation: fadeIn 0.2s ease-in forwards;
-            animation-delay: 2.3s;
-        }
-        .stove-button {
+        .stove-button-wrapper {
             animation: slideDownAndFadeIn 0.2s ease-in forwards;
-            animation-delay: 2.8s;
-        }
-        .stove-button + .button-icon {
-            animation: fadeIn 0.2s ease-in forwards;
             animation-delay: 2.8s;
         }
         
@@ -378,26 +377,14 @@
                 <img src="images/serke/Enemy3.png" class="enemy-image" alt="적 이미지">
 
                 <div class="button-container">
-                    <button class="info-button">
-                        게임정보
-                    </button>
-                    <span class="button-icon"><i class="fas fa-info-circle"></i></span>
-                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">
-                        스팀
-                    </a>
-                    <span class="button-icon"><i class="fab fa-steam"></i></span>
-                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">
-                        스토브
-                    </a>
-                    <span class="button-icon"><i class="fas fa-shopping-cart"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="another-section">
-            <span class="company-name">디에스게임즈</span>
-            <span>doublesdevgames@gmail.com</span>
-            <span>인천시 부평구 경인로 890번길 57</span>
-        </div>
-    </div>
-</body>
-</html>
+                    <div class="button-wrapper info-button-wrapper">
+                        <button class="info-button">게임정보</button>
+                        <span class="button-icon"><i class="fas fa-info-circle"></i></span>
+                    </div>
+                    <div class="button-wrapper store-button-wrapper steam-button">
+                        <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button">
+                            스팀
+                        </a>
+                        <span class="button-icon"><i class="fab fa-steam"></i></span>
+                    </div>
+                    <div class="button-wrapper store-button-wrapper stove-button">
