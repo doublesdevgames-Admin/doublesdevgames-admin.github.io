@@ -89,11 +89,9 @@
             display: block;
             text-align: center;
             transform: skewX(-15deg);
-            /* 드롭다운 항목 아래에 선 추가 */
             border-bottom: 2px solid #000;
-            box-sizing: border-box; /* 패딩과 보더 포함하여 크기 계산 */
+            box-sizing: border-box;
         }
-        /* 마지막 항목에는 선 제거 */
         .dropdown-content a:last-child {
             border-bottom: none;
         }
@@ -186,7 +184,7 @@
         .store-button {
             width: 280px;
             height: 50px;
-            line-height: 50px;
+            /* line-height: 50px; <- 이 속성 제거 */
             text-align: center;
             font-size: 30px;
             font-weight: bold;
