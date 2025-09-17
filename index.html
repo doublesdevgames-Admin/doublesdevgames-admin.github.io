@@ -191,21 +191,25 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: block;
-            text-align: center;
-            position: relative;
+            display: flex; /* flexbox 사용 */
+            justify-content: center; /* 전체 콘텐츠 중앙 정렬 */
+            align-items: center;
             opacity: 0;
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             transition: background-color 0.3s ease;
         }
         
-        .info-button i, .store-button i {
-            position: absolute;
-            left: 15px; 
-            top: 50%;
-            transform: translateY(-50%);
+        .button-text {
+            display: flex;
+            align-items: center;
+            
         }
+
+        .button-text i {
+            margin-right: 15px; /* 아이콘을 오른쪽으로 15px 이동 */
+        }
+
         .store-button {
             margin-top: 20px;
             text-shadow: none;
@@ -340,9 +344,15 @@
                 <img src="images/serke/Enemy3.png" class="enemy-image" alt="적 이미지">
 
                 <div class="button-container">
-                    <button class="info-button"><i class="fas fa-info-circle"></i> 게임정보</button>
-                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button"><i class="fab fa-steam"></i> 스팀</a>
-                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button"><i class="fas fa-shopping-cart"></i> 스토브</a>
+                    <button class="info-button">
+                        <span class="button-text"><i class="fas fa-info-circle"></i> 게임정보</span>
+                    </button>
+                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">
+                        <span class="button-text"><i class="fab fa-steam"></i> 스팀</span>
+                    </a>
+                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">
+                        <span class="button-text"><i class="fas fa-shopping-cart"></i> 스토브</span>
+                    </a>
                 </div>
             </div>
         </div>
