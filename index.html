@@ -188,12 +188,19 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: block;
+            display: flex; /* flexbox 사용 */
+            justify-content: center; /* 텍스트와 아이콘 중앙 정렬 */
+            align-items: center;
             opacity: 0;
             clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
             transition: background-color 0.3s ease;
         }
+
+        .info-button i, .store-button i {
+            margin-right: 10px; /* 아이콘과 텍스트 사이 간격 */
+        }
+
         .info-button:hover,
         .store-button:hover {
             background-color: #fff;
@@ -292,6 +299,9 @@
             <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
         </div>
         <ul>
+            <li>
+                <a href="index.html"><span>메인</span></a>
+            </li>
             <li class="dropdown">
                 <a href="#"><span>게임</span></a>
                 <div class="dropdown-content">
@@ -325,9 +335,9 @@
                 <img src="images/serke/Enemy3.png" class="enemy-image" alt="적 이미지">
 
                 <div class="button-container">
-                    <button class="info-button">게임정보</button>
-                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button">스팀상점</a>
-                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button">스토브</a>
+                    <button class="info-button"><i class="fas fa-info-circle"></i> 게임정보</button>
+                    <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank" class="store-button steam-button"><i class="fab fa-steam"></i> 스팀상점</a>
+                    <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="store-button stove-button"><i class="fas fa-shopping-cart"></i> 스토브</a>
                 </div>
             </div>
         </div>
