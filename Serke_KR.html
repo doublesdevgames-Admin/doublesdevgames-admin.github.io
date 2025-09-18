@@ -137,39 +137,6 @@
             background-color: rgba(0, 0, 0, 0.2); 
             z-index: -1; 
         }
-        
-        /* --- 좌측 고정 캐릭터 이미지 (Boss_Pairity) --- */
-        .fixed-character-left {
-            position: fixed;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%) scaleX(-1); /* 좌우 반전 */
-            height: 80%; 
-            filter: brightness(70%); /* 밝기 30% 낮춤 */
-            z-index: 0; 
-            pointer-events: none; 
-        }
-        .fixed-character-left img {
-            height: 100%;
-            width: auto;
-        }
-
-        /* --- 우측 고정 캐릭터 이미지 (character) --- */
-        .fixed-character-right {
-            position: fixed;
-            right: 50px; /* 좌측에서 50px이 아닌 우측에서 50px로 변경 */
-            top: 50%;
-            transform: translateY(-50%);
-            height: 80%; 
-            opacity: 0.8; 
-            filter: brightness(70%); 
-            z-index: 0; 
-            pointer-events: none; 
-        }
-        .fixed-character-right img {
-            height: 100%;
-            width: auto;
-        }
 
         /* --- 세르케 페이지 전용 스타일 --- */
         .serke-header-section {
@@ -526,13 +493,6 @@
         </ul>
     </nav>
     <div class="main-content">
-        <div class="fixed-character-left">
-            <img src="images/serke/Boss_Pairity.png" alt="보스 페어리티">
-        </div>
-
-        <div class="fixed-character-right">
-            <img src="images/serke/Character.png" alt="세르케 캐릭터">
-        </div>
 
         <div class="serke-header-section">
             <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
