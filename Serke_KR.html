@@ -195,8 +195,8 @@
         }
 
         .platform-buttons a {
-            display: flex; /* 아이콘과 텍스트를 나란히 */
-            align-items: center; /* 세로 중앙 정렬 */
+            display: flex; 
+            align-items: center; 
             background-color: #007bff; 
             color: white;
             padding: 15px 30px;
@@ -207,7 +207,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-        .platform-buttons a i { /* 아이콘 스타일 */
+        .platform-buttons a i { 
             margin-right: 10px;
             font-size: 1.5em;
         }
@@ -225,7 +225,6 @@
             background-color: #a00005;
         }
 
-
         /* --- 스크린샷 슬라이드쇼 --- */
         .slideshow-container {
             max-width: 900px;
@@ -240,7 +239,6 @@
             vertical-align: middle;
             width: 100%;
         }
-
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -255,16 +253,13 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
         }
-
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
         }
-
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,0.8);
         }
-
         .dot {
             cursor: pointer;
             height: 15px;
@@ -275,16 +270,13 @@
             display: inline-block;
             transition: background-color 0.6s ease;
         }
-
         .active, .dot:hover {
             background-color: #80ffeb;
         }
-
         .fade {
             animation-name: fade;
             animation-duration: 1.5s;
         }
-
         @keyframes fade {
             from {opacity: .4}
             to {opacity: 1}
@@ -301,21 +293,18 @@
             box-shadow: 0 0 15px rgba(0, 255, 235, 0.5); 
             color: #e0e0e0; 
         }
-
         .info-box h2 {
             font-size: 2.5em;
             color: #80ffeb;
             margin-bottom: 20px;
             text-shadow: 0 0 8px rgba(128, 255, 235, 0.7); 
         }
-
         .info-box p {
             font-size: 1.2em;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto 20px; 
         }
-
         .info-box h3 { 
             font-size: 1.8em;
             color: #80ffeb;
@@ -324,29 +313,33 @@
             text-shadow: 0 0 6px rgba(128, 255, 235, 0.6);
         }
 
-        .info-box .weapon-item { /* 개별 무기 컨테이너 */
+        .info-box .weapon-item { 
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 60px; /* 각 무기 섹션 간 간격 */
+            margin-bottom: 60px;
         }
-
         .info-box .weapon-item:last-of-type {
             margin-bottom: 0;
         }
-
         .info-box .weapon-gif { 
             max-width: 100%;
             height: 150px; 
             filter: drop-shadow(0 0 5px #80ffeb);
             margin-top: 20px;
-            margin-bottom: 20px; /* 재생 버튼과의 여백 */
+            margin-bottom: 20px;
             display: block; 
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* 재생 버튼 스타일 */
+        /* --- 재생 버튼 컨테이너 및 버튼 스타일 --- */
+        .video-buttons-container {
+            display: flex;
+            flex-wrap: wrap; /* 버튼이 많아지면 줄 바꿈 */
+            justify-content: center;
+            gap: 15px; /* 버튼 사이 간격 */
+            margin-top: 20px;
+        }
         .play-button {
             background-color: #80ffeb;
             color: black;
@@ -354,14 +347,13 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-flex; /* 아이콘과 텍스트 정렬 */
+            display: inline-flex;
             align-items: center;
             gap: 8px;
         }
-
         .play-button:hover {
             background-color: #66ccb3;
             transform: translateY(-2px);
@@ -369,19 +361,18 @@
 
         /* --- 모달 (팝업) 스타일 --- */
         .modal {
-            display: none; /* 기본 숨김 */
-            position: fixed; /* 전체 화면 */
-            z-index: 100; /* 다른 모든 요소 위에 */
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* 내용이 넘칠 경우 스크롤 */
-            background-color: rgba(0, 0, 0, 0.9); /* 반투명 검은 배경 */
-            align-items: center; /* 세로 중앙 정렬 */
-            justify-content: center; /* 가로 중앙 정렬 */
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.9); 
+            align-items: center; 
+            justify-content: center; 
         }
-
         .modal-content {
             position: relative;
             background-color: #1a1a1a;
@@ -399,11 +390,10 @@
         .modal-content video {
             width: 100%;
             height: auto;
-            max-height: 70vh; /* 화면 높이에 맞춰 최대 크기 제한 */
+            max-height: 70vh;
             border-radius: 8px;
             margin-bottom: 15px;
         }
-
         .close-button {
             color: #aaa;
             font-size: 40px;
@@ -414,14 +404,12 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .close-button:hover,
         .close-button:focus {
             color: #80ffeb;
             text-decoration: none;
             cursor: pointer;
         }
-
 
         /* --- 하단 푸터 및 소셜 아이콘 --- */
         .another-section {
@@ -541,46 +529,117 @@
                 <h3>시아네아</h3>
                 <p>시아네아는 기동성이 뛰어난 한손검 무기입니다.<br>모든 능력치가 준수하여 밸런스가 좋은 무기입니다.</p>
                 <img src="images/serke/WP_Sword.gif" alt="시아네아 GIF" class="weapon-gif">
-                <button class="play-button" data-video="images/serke/WP_Sword.mp4">
-                    <i class="fa-solid fa-play"></i> 영상 보기
-                </button>
+                <div class="video-buttons-container">
+                    <button class="play-button" data-video="videos/serke/SwordInfo.mp4">
+                        <i class="fa-solid fa-play"></i> 무기 정보
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Swordskill1.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 1
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Swordskill2.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 2
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Swordskill3.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 3
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Swordskill4.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 4
+                    </button>
+                </div>
             </div>
 
             <div class="weapon-item">
                 <h3>스피니퍼</h3>
                 <p>스피니퍼는 라이플을 바탕으로 드론, 터렛을 소환하여 끊임없이 이동하며 싸웁니다.<br>거리를 두고 일방적으로 적을 공격할 수 있는 무기입니다.</p>
                 <img src="images/serke/WP_Rifle.gif" alt="스피니퍼 GIF" class="weapon-gif">
-                <button class="play-button" data-video="images/serke/WP_Rifle.mp4">
-                    <i class="fa-solid fa-play"></i> 영상 보기
-                </button>
+                <div class="video-buttons-container">
+                    <button class="play-button" data-video="videos/serke/RifleInfo.mp4">
+                        <i class="fa-solid fa-play"></i> 무기 정보
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Rifleskill1.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 1
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Rifleskill2.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 2
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Rifleskill3.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 3
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Rifleskill4.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 4
+                    </button>
+                </div>
             </div>
 
             <div class="weapon-item">
                 <h3>레드 클로우</h3>
                 <p>레드 클로우는 할버드 형태의 대형 근접 무기입니다.<br>강력한 데미지로 일격에 적을 분쇄하세요.</p>
                 <img src="images/serke/WP_Halberd.gif" alt="레드 클로우 GIF" class="weapon-gif">
-                <button class="play-button" data-video="images/serke/WP_Halberd.mp4">
-                    <i class="fa-solid fa-play"></i> 영상 보기
-                </button>
+                <div class="video-buttons-container">
+                    <button class="play-button" data-video="videos/serke/HalberdInfo.mp4">
+                        <i class="fa-solid fa-play"></i> 무기 정보
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Halberdskill1.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 1
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Halberdskill2.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 2
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Halberdskill3.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 3
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Halberdskill4.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 4
+                    </button>
+                </div>
             </div>
 
             <div class="weapon-item">
                 <h3>임페라토르</h3>
                 <p>임페라토르는 화력 장비를 사용하는 강력한 원거리 무기입니다.<br>고화력 장비인 샷건, 게틀링, 레이저포, 유탄을 사용해 적을 섬멸하세요.</p>
                 <img src="images/serke/WP_Heavyweapon.gif" alt="임페라토르 GIF" class="weapon-gif">
-                <button class="play-button" data-video="images/serke/WP_Heavyweapon.mp4">
-                    <i class="fa-solid fa-play"></i> 영상 보기
-                </button>
+                <div class="video-buttons-container">
+                    <button class="play-button" data-video="videos/serke/HWInfo.mp4">
+                        <i class="fa-solid fa-play"></i> 무기 정보
+                    </button>
+                    <button class="play-button" data-video="videos/serke/HWskill1.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 1
+                    </button>
+                    <button class="play-button" data-video="videos/serke/HWskill2.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 2
+                    </button>
+                    <button class="play-button" data-video="videos/serke/HWskill3.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 3
+                    </button>
+                    <button class="play-button" data-video="videos/serke/HWskill4.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 4
+                    </button>
+                </div>
             </div>
 
             <div class="weapon-item">
                 <h3>데스 스토커</h3>
                 <p>데스 스토커는 가까이 접근하여 싸우는 격투 무기입니다.<br>킥과 펀치로 공격하기 때문에 속도감 있는 전투를 할 수 있습니다.</p>
                 <img src="images/serke/WP_Gauntlet.gif" alt="데스 스토커 GIF" class="weapon-gif">
-                <button class="play-button" data-video="images/serke/WP_Gauntlet.mp4">
-                    <i class="fa-solid fa-play"></i> 영상 보기
-                </button>
+                <div class="video-buttons-container">
+                    <button class="play-button" data-video="videos/serke/GauntletInfo.mp4">
+                        <i class="fa-solid fa-play"></i> 무기 정보
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Gauntletskill1.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 1
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Gauntletskill2.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 2
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Gauntletskill3.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 3
+                    </button>
+                    <button class="play-button" data-video="videos/serke/Gauntletskill4.mp4">
+                        <i class="fa-solid fa-play"></i> 스킬 4
+                    </button>
+                </div>
             </div>
+
         </div>
 
         <div class="slideshow-container">
@@ -670,18 +729,17 @@
             button.addEventListener('click', function() {
                 const videoSrc = this.getAttribute('data-video');
                 modalVideo.src = videoSrc;
-                videoModal.style.display = 'flex'; // flex로 설정하여 중앙 정렬 활성화
+                videoModal.style.display = 'flex'; 
                 modalVideo.play();
             });
         });
 
         function closeModal() {
             modalVideo.pause();
-            modalVideo.src = ""; // 비디오 소스 초기화
+            modalVideo.src = ""; 
             videoModal.style.display = 'none';
         }
 
-        // 모달 바깥 클릭 시 닫기
         window.addEventListener('click', function(event) {
             if (event.target == videoModal) {
                 closeModal();
