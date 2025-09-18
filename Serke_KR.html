@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DoublesDevGames - Serke</title>
+    <title>DoublesDevGames - 세르케</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         body {
@@ -113,19 +113,49 @@
         /* --- 메인 콘텐츠 및 배경 --- */
         .main-content {
             margin-left: 0;
-            /* 기존 배경 이미지를 비활성화하고, 필요에 따라 새 배경을 추가할 수 있도록 준비 */
-            background-image: none;
             background-color: #1a1a1a;
             color: white;
             padding-top: 150px; /* 상단 메뉴바를 고려한 여백 */
             min-height: 100vh;
         }
-        .fixed-background-section {
-            /* 이 섹션은 이제 새로운 콘텐츠를 담을 공간으로 사용됩니다. */
+        
+        /* --- 세르케 페이지 전용 스타일 --- */
+        .serke-header-section {
+            background-image: url('./images/serke/Main1.png');
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .serke-header-section img {
+            max-width: 80%;
             height: auto;
-            min-height: calc(100vh - 200px); /* 푸터를 고려한 최소 높이 */
-            padding: 50px 0;
+        }
+        
+        .game-info-section {
+            background-color: #1f1f1f;
+            padding: 50px 10%;
             text-align: center;
+        }
+
+        .game-info-section h2 {
+            font-size: 2.5em;
+            color: #80ffeb;
+            margin-bottom: 20px;
+        }
+
+        .game-info-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
         }
 
         /* --- 하단 푸터 및 소셜 아이콘 --- */
@@ -197,7 +227,7 @@
             <li class="dropdown">
                 <a href="#" class="active"><span>게임</span></a>
                 <div class="dropdown-content">
-                    <a href="#"><span>세르케</span></a>
+                    <a href="Serke_KR.html"><span>세르케</span></a>
                 </div>
             </li>
             <li class="dropdown">
@@ -210,8 +240,18 @@
         </ul>
     </nav>
     <div class="main-content">
-        <div class="fixed-background-section">
-            </div>
+        <div class="serke-header-section">
+            <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
+        </div>
+
+        <div class="game-info-section">
+            <h2>게임 소개</h2>
+            <p>
+                이곳에 세르케 게임에 대한 자세한 설명이 들어갑니다. 게임의 장르, 독특한 특징, 스토리에 대한 내용을 작성할 수 있습니다.
+                예를 들어, "세르케는 신비로운 동양의 신화를 배경으로 한 액션 RPG 게임입니다. 아름다운 수묵화풍의 그래픽과 다이나믹한 전투 시스템을 경험하세요." 와 같이 내용을 채워 넣을 수 있습니다.
+            </p>
+        </div>
+        
         <div class="another-section">
             <span class="company-name">디에스게임즈</span>
             <span>doublesdevgames@gmail.com</span>
