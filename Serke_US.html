@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoublesDevGames - 세르케</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+        }
+
+        /* --- 상단 메뉴바 --- */
+        nav {
+            background-color: #000000;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0 100px 0 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 75px;
+        }
+        nav li {
+            position: relative;
+        }
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 0 16px;
+            line-height: 75px;
+            text-decoration: none;
+            font-size: 20px;
+            transform: skewX(-15deg);
+        }
+        nav li a span {
+            display: block;
+            transform: skewX(15deg);
+        }
+        nav li a:hover:not(.active) {
+            background-color: #80ffeb;
+            color: black;
+        }
+        
+        /* 현재 페이지 활성화 표시 */
+        nav li a.active {
+            background-color: #80ffeb;
+            color: black;
+        }
+        
+        /* --- 회사 로고 --- */
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 130px;
+        }
+        .logo-container img {
+            height: 130px;
+            vertical-align: middle;
+        }
+
+        /* --- 드롭다운 메뉴 --- */
+        .dropdown-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.2s ease-in-out;
+            position: absolute;
+            background-color: #80ffeb;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dropdown:hover .dropdown-content {
+            max-height: 200px;
+        }
+        .dropdown-content a {
+            width: 100%;
+            color: black;
+            padding: 5px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transform: skewX(0);
+            border-bottom: 2px solid transparent; 
+            box-sizing: border-box;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a span {
+            display: block;
+            transform: skewX(0);
+        }
+        .dropdown-content a:hover {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+        
+        /* --- 메인 콘텐츠 및 배경 --- */
+        .main-content {
+            margin-left: 0;
+            background-image: url('./images/serke/Stage_timeAtk.png');
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding-top: 75px; 
+            min-height: 100vh;
+            position: relative; 
+            z-index: 1; 
+        }
+        
+        /* 배경 밝기 조절을 위한 오버레이 */
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); 
+            z-index: -1; 
+        }
+
+        /* --- 세르케 페이지 전용 스타일 --- */
+        .serke-header-section {
+            height: 50vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+            align-items: center;
+            padding-top: 0px; 
+        }
+        .serke-header-section img {
+            max-width: 60%;
+            height: auto;
+            margin-top: -300px; 
+        }
+        /* --- gamelogo.png 아래 문구 스타일 --- */
+        .serke-header-text {
+            font-size: 1.8em; 
+            color: #80ffeb; 
+            text-shadow: 0 0 10px rgba(128, 255, 235, 0.7); 
+            margin-top: 20px; 
+            text-align: center;
+            position: relative;
+            z-index: 1; 
+            margin-bottom: 30px; 
+        }
+        /* --- 스팀/스토브 버튼 컨테이너 --- */
+        .platform-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            margin-bottom: 50px; 
+            position: relative;
+            z-index: 1;
+        }
+        .platform-buttons a {
+            display: flex; 
+            align-items: center; 
+            background-color: #007bff; 
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .platform-buttons a i { 
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        .platform-buttons a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+        /* 스토브 버튼 색상 */
+        .platform-buttons a.stove-button {
+            background-color: #d10007; 
+        }
+        .platform-buttons a.stove-button:hover {
+            background-color: #a00005;
+        }
+
+        /* --- 스크린샷 슬라이드쇼 --- */
+        .slideshow-container {
+            max-width: 900px;
+            position: relative;
+            margin: auto;
+            padding: 50px 0 20px; 
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            vertical-align: middle;
+            width: 100%;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #80ffeb;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+        
+        /* --- 게임 소개 및 무기 소개 박스 스타일 --- */
+        .info-box { 
+            background-color: rgba(0, 0, 0, 0.9); 
+            padding: 50px 10%;
+            text-align: center;
+            max-width: 900px; 
+            margin: 50px auto; 
+            border-radius: 10px; 
+            box-shadow: 0 0 15px rgba(0, 255, 235, 0.5); 
+            color: #e0e0e0; 
+        }
+        .info-box h2 {
+            font-size: 2.5em;
+            color: #80ffeb;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(128, 255, 235, 0.7); 
+        }
+        .info-box p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 20px; 
+        }
+        .info-box h3 { 
+            font-size: 1.8em;
+            color: #80ffeb;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 6px rgba(128, 255, 235, 0.6);
+        }
+        .info-box .weapon-item { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .info-box .weapon-item:last-of-type {
+            margin-bottom: 0;
+        }
+        /* --- GIF 이미지 스타일 --- */
+        .info-box .weapon-gif { 
+            max-width: 100%;
+            height: 150px; 
+            filter: drop-shadow(0 0 5px #80ffeb);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: block; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- 재생 버튼 스타일 (메인 페이지) --- */
+        .main-play-button {
+            background-color: #80ffeb;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .main-play-button:hover {
+            background-color: #66ccb3;
+            transform: translateY(-2px);
+        }
+        /* --- 모달 (팝업) 스타일 --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.9); 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .modal-content {
+            position: relative;
+            background-color: #1a1a1a;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #80ffeb;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .modal-content video {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .close-button {
+            color: #aaa;
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #80ffeb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* --- 모달 내 버튼 스타일 --- */
+        .modal-buttons-container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 10px;
+        }
+        .modal-buttons-container button {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #80ffeb;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .modal-buttons-container button:hover {
+            background-color: #80ffeb;
+            color: #000;
+        }
+
+        /* --- 하단 푸터 및 소셜 아이콘 --- */
+        .another-section {
+            background-color: #1f1f1f; 
+            color: white;
+            padding: 10px 50px;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 100px;
+            min-height: auto;
+            position: relative; 
+            z-index: 2; 
+        }
+        .another-section .company-name {
+            font-weight: bold;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #80ffeb;
+        }
+
+        /* --- 좌측 고정 소셜 박스 --- */
+        .fixed-social-box {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 72px;
+            background-color: #80ffeb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0;
+            z-index: 20;
+        }
+        .fixed-social-box a {
+            color: #000;
+            font-size: 34px;
+            margin: 18px 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .fixed-social-box a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-social-box">
+        <a href="https://www.youtube.com/@doublesdevgames" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/doubleSgames" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://discord.gg/Pzmnjd5s36" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
+
+    <nav>
+        <div class="logo-container">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
+        </div>
+        <ul>
+            <li>
+                <a href="index.html"><span>메인</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="active"><span>게임</span></a>
+                <div class="dropdown-content">
+                    <a href="Serke_KR.html"><span>세르케</span></a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#"><span>언어</span></a>
+                <div class="dropdown-content">
+                    <a href="index.html"><span>한국어 (KR)</span></a>
+                    <a href="index_US.html"><span>English (US)</span></a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="serke-header-section">
+            <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
+            <p class="serke-header-text">바이러스 침입에 맞서는 핵 앤 슬래시 액션!</p>
+            <div class="platform-buttons">
+                <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank">
+                    <i class="fa-brands fa-steam"></i>Steam에서 플레이
+                </a>
+                <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="stove-button">
+                    <i class="fa-solid fa-fire"></i>Stove에서 플레이
+                </a>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h2>게임 소개</h2>
+            <p>
+                세르케는 바이러스 침입에 대항하여 싸우는 핵 앤 슬래시 액션 게임입니다. 플레이어는 인공지능 정화프로그렘인 '세르케'가 되어, 악의적인 바이러스에 감염된 적들을 정화하고 가상 세계를 구원해야 합니다.
+            </p>
+            <p>
+                5종류의 독특한 무기 (검, 소총, 할버드, 중화기, 건틀릿 등)를 사용하여 끊임없이 몰려오는 적들을 시원하게 섬멸하고, 다이나믹한 전투 시스템으로 전략적인 액션을 펼치십시오. 미래 지향적인 SF 배경과 압도적인 핵 앤 슬래시 액션이 당신을 기다립니다.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>무기 소개</h2>
+            
+            <div class="weapon-item">
+                <h3>시아네아</h3>
+                <p>시아네아는 기동성이 뛰어난 한손검 무기입니다.<br>모든 능력치가 준수하여 밸런스가 좋은 무기입니다.</p>
+                <img src="images/serke/WP_Sword.gif" alt="시아네아 GIF" class="weapon-gif">
+                <button class="main-play-button" data-weapon="Sword">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+            </div>
+
+            <div class="weapon-item">
+                <h3>스피니퍼</h3>
+                <p>스피니퍼는 라이플을 바탕으로 드론, 터렛을 소환하여 끊임없이 이동하며 싸웁니다.<br>거리를 두고 일방적으로 적을 공격할 수 있는 무기입니다.</p>
+                <img src="images/serke/WP_Rifle.gif" alt="스피니퍼 GIF" class="weapon-gif">
+                <button class="main-play-button" data-weapon="Rifle">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+            </div>
+
+            <div class="weapon-item">
+                <h3>레드 클로우</h3>
+                <p>레드 클로우는 할버드 형태의 대형 근접 무기입니다.<br>강력한 데미지로 일격에 적을 분쇄하세요.</p>
+                <img src="images/serke/WP_Halberd.gif" alt="레드 클로우 GIF" class="weapon-gif">
+                <button class="main-play-button" data-weapon="Halberd">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+            </div>
+
+            <div class="weapon-item">
+                <h3>임페라토르</h3>
+                <p>임페라토르는 화력 장비를 사용하는 강력한 원거리 무기입니다.<br>고화력 장비인 샷건, 게틀링, 레이저포, 유탄을 사용해 적을 섬멸하세요.</p>
+                <img src="images/serke/WP_Heavyweapon.gif" alt="임페라토르 GIF" class="weapon-gif">
+                <button class="main-play-button" data-weapon="HW">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+            </div>
+
+            <div class="weapon-item">
+                <h3>데스 스토커</h3>
+                <p>데스 스토커는 가까이 접근하여 싸우는 격투 무기입니다.<br>킥과 펀치로 공격하기 때문에 속도감 있는 전투를 할 수 있습니다.</p>
+                <img src="images/serke/WP_Gauntlet.gif" alt="데스 스토커 GIF" class="weapon-gif">
+                <button class="main-play-button" data-weapon="Gauntlet">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+            </div>
+
+        </div>
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot1.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot2.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot3.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot4.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot5.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot6.png">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+    </div>
+        
+    <div class="another-section">
+        <span class="company-name">디에스게임즈</span>
+        <span>doublesdevgames@gmail.com</span>
+        <span>인천시 부평구 경인로 890번길 57</span>
+    </div>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <video id="modalVideo" controls loop autoplay playsinline>
+                <source src="" type="video/mp4">
+                죄송합니다. 귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
+            </video>
+            <div id="modalControls" class="modal-buttons-container"></div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        // --- 비디오 모달 관련 스크립트 ---
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalControls = document.getElementById('modalControls');
+        const mainPlayButtons = document.querySelectorAll('.main-play-button');
+
+        // 무기별 영상 목록
+        const videoMap = {
+            'Sword': [
+                { name: '무기 정보', file: 'SwordInfo.mp4' },
+                { name: '스킬 1', file: 'Swordskill1.mp4' },
+                { name: '스킬 2', file: 'Swordskill2.mp4' },
+                { name: '스킬 3', file: 'Swordskill3.mp4' },
+                { name: '스킬 4', file: 'Swordskill4.mp4' },
+            ],
+            'Rifle': [
+                { name: '무기 정보', file: 'RifleInfo.mp4' },
+                { name: '스킬 1', file: 'Rifleskill1.mp4' },
+                { name: '스킬 2', file: 'Rifleskill2.mp4' },
+                { name: '스킬 3', file: 'Rifleskill3.mp4' },
+                { name: '스킬 4', file: 'Rifleskill4.mp4' },
+            ],
+            'Halberd': [
+                { name: '무기 정보', file: 'HalberdInfo.mp4' },
+                { name: '스킬 1', file: 'Halberdskill1.mp4' },
+                { name: '스킬 2', file: 'Halberdskill2.mp4' },
+                { name: '스킬 3', file: 'Halberdskill3.mp4' },
+                { name: '스킬 4', file: 'Halberdskill4.mp4' },
+            ],
+            'HW': [
+                { name: '무기 정보', file: 'HWInfo.mp4' },
+                { name: '스킬 1', file: 'HWskill1.mp4' },
+                { name: '스킬 2', file: 'HWskill2.mp4' },
+                { name: '스킬 3', file: 'HWskill3.mp4' },
+                { name: '스킬 4', file: 'HWskill4.mp4' },
+            ],
+            'Gauntlet': [
+                { name: '무기 정보', file: 'GauntletInfo.mp4' },
+                { name: '스킬 1', file: 'Gauntletskill1.mp4' },
+                { name: '스킬 2', file: 'Gauntletskill2.mp4' },
+                { name: '스킬 3', file: 'Gauntletskill3.mp4' },
+                { name: '스킬 4', file: 'Gauntletskill4.mp4' },
+            ],
+        };
+
+        mainPlayButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const weaponType = this.getAttribute('data-weapon');
+                const videos = videoMap[weaponType];
+
+                if (!videos || videos.length === 0) {
+                    console.error('해당 무기에 대한 비디오 정보가 없습니다.');
+                    return;
+                }
+
+                // 기존 버튼 제거
+                modalControls.innerHTML = '';
+
+                // 비디오 버튼 생성 및 추가
+                videos.forEach(video => {
+                    const videoButton = document.createElement('button');
+                    videoButton.textContent = video.name;
+                    videoButton.addEventListener('click', () => {
+                        modalVideo.src = `videos/serke/${video.file}`;
+                        modalVideo.play();
+                    });
+                    modalControls.appendChild(videoButton);
+                });
+
+                // 모달 열기 및 첫 번째 영상 재생
+                modalVideo.src = `videos/serke/${videos[0].file}`;
+                videoModal.style.display = 'flex';
+                modalVideo.play();
+            });
+        });
+
+        function closeModal() {
+            modalVideo.pause();
+            modalVideo.src = ""; 
+            videoModal.style.display = 'none';
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target == videoModal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
