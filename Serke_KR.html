@@ -134,7 +134,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.2); /* 검은색 20% 투명도 오버레이 */
+            background-color: rgba(0, 0, 0, 0.2); 
             z-index: -1; 
         }
 
@@ -144,11 +144,11 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            height: 80%; /* 화면 높이에 맞춰 조정 */
-            opacity: 0.8; /* 투명도 조절 (배경처럼 보이도록) */
-            filter: brightness(70%); /* 30% 어둡게 */
-            z-index: 0; /* 다른 콘텐츠보다 아래에 위치 */
-            pointer-events: none; /* 이미지 클릭 방지 (배경처럼 작동) */
+            height: 80%; 
+            opacity: 0.8; 
+            filter: brightness(70%); 
+            z-index: 0; 
+            pointer-events: none; 
         }
         .fixed-character-right img {
             height: 100%;
@@ -170,6 +170,17 @@
             max-width: 60%;
             height: auto;
             margin-top: -300px; 
+        }
+
+        /* --- gamelogo.png 아래 문구 스타일 --- */
+        .serke-header-text {
+            font-size: 1.8em; /* 폰트 크기 조정 */
+            color: #80ffeb; /* 밝은 청록색으로 강조 */
+            text-shadow: 0 0 10px rgba(128, 255, 235, 0.7); /* 네온 효과 */
+            margin-top: 20px; /* 로고와 문구 사이 여백 */
+            text-align: center;
+            position: relative;
+            z-index: 1; /* 다른 요소 위에 오도록 */
         }
 
         /* --- 무기 쇼케이스 섹션 --- */
@@ -368,6 +379,7 @@
 
         <div class="serke-header-section">
             <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
+            <p class="serke-header-text">바이러스 침입에 맞서는 핵 앤 슬래시 액션!</p>
         </div>
 
         <div class="weapon-showcase">
@@ -413,11 +425,11 @@
         <div class="game-info-section">
             <h2>게임 소개</h2>
             <p>
-                세르케는 신비로운 동양의 신화를 배경으로 한 스타일리시 액션 RPG 게임입니다.
-                아름다운 수묵화풍의 그래픽과 다이나믹한 전투 시스템을 통해 플레이어는 몰입감 넘치는 여정을 경험하게 됩니다.
-                고대 문명의 비밀을 파헤치고, 강력한 적들에 맞서 싸우며 자신만의 전설을 만들어가세요.
-                다양한 무기와 스킬 조합으로 개성 넘치는 전투 스타일을 구현할 수 있으며, 전략적인 판단과 정교한 컨트롤이 요구됩니다.
-                잊혀진 영웅의 이야기를 따라가며 세르케의 세계에 숨겨진 진실을 밝혀내세요.
+                세르케는 바이러스 침입에 대항하여 싸우는 핵 앤 슬래시 액션 게임입니다.
+                플레이어는 고도로 진화한 AI 요원이 되어, 악의적인 바이러스에 감염된 적들을 정화하고 데이터를 보호하며 가상 세계를 구원해야 합니다.
+                5종류의 독특한 무기 (검, 소총, 할버드, 중화기, 건틀릿 등)를 사용하여 끊임없이 몰려오는 적들을 시원하게 섬멸하고, 다이나믹한 전투 시스템으로 전략적인 액션을 펼치십시오.
+                미래 지향적인 SF 배경과 압도적인 핵 앤 슬래시 액션이 당신을 기다립니다.
+                시스템의 심층부로 뛰어들어 숨겨진 진실을 밝히고, 궁극의 AI 능력을 각성하여 가상 세계의 마지막 희망이 되십시오.
             </p>
         </div>
     </div>
