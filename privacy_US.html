@@ -1,209 +1,372 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DSGAMES - 개인정보 보호 정책</title>
+    <title>DSGAMES - Privacy Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        /* 뒤로가기 버튼 스타일 */
-        .back-button {
-            background-color: #555;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            margin: 20px;
-        }
-        .back-button:hover {
-            background-color: #777;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        /* 메뉴바 스타일 */
+        /* --- Top Navigation Bar --- */
+        nav {
+            background-color: #000000;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
         nav ul {
             list-style-type: none;
             margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            width: 100%;
-            top: 0;
+            padding: 0 100px 0 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 75px;
         }
         nav li {
-            float: left;
+            position: relative;
         }
         nav li a {
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 0 16px;
+            line-height: 75px;
             text-decoration: none;
+            font-size: 20px;
+            transform: skewX(-15deg);
+        }
+        nav li a span {
+            display: block;
+            transform: skewX(15deg);
         }
         nav li a:hover:not(.active) {
-            background-color: #111;
+            background-color: #80ffeb;
+            color: black;
+        }
+        
+        /* Current Page Active Display */
+        nav li a.active {
+            background-color: #80ffeb;
+            color: black;
+        }
+        
+        /* --- Company Logo --- */
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 130px;
+        }
+        .logo-container img {
+            height: 130px;
+            vertical-align: middle;
         }
 
-        /* 개인정보처리방침 내용 스타일 */
+        /* --- Dropdown Menu --- */
+        .dropdown-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.2s ease-in-out;
+            position: absolute;
+            background-color: #80ffeb;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dropdown:hover .dropdown-content {
+            max-height: 200px;
+        }
+        .dropdown-content a {
+            width: 100%;
+            color: black;
+            padding: 5px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transform: skewX(0);
+            border-bottom: 2px solid transparent; 
+            box-sizing: border-box;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a span {
+            display: block;
+            transform: skewX(0);
+        }
+        .dropdown-content a:hover {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        /* --- Privacy Policy Content Style --- */
         .privacy-content {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 100px auto 20px;
             padding: 20px;
             line-height: 1.6;
             font-family: Arial, sans-serif;
             color: #333;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .privacy-content h1, .privacy-content h2, .privacy-content h3 {
             color: #222;
         }
+        
+        /* --- Bottom Button Style --- */
+        .back-button {
+            display: block;
+            width: 200px;
+            background-color: #000;
+            color: #80ffeb;
+            font-weight: bold;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+
+        /* --- Bottom Footer & Social Icons --- */
+        .another-section {
+            background-color: #1f1f1f; 
+            color: white;
+            padding: 10px 50px;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 100px;
+            min-height: auto;
+            position: relative; 
+            z-index: 2; 
+        }
+        .another-section .company-name {
+            font-weight: bold;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #80ffeb;
+        }
+
+        /* --- Fixed Left Social Box --- */
+        .fixed-social-box {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 72px;
+            background-color: #80ffeb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0;
+            z-index: 20;
+        }
+        .fixed-social-box a {
+            color: #000;
+            font-size: 34px;
+            margin: 18px 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .fixed-social-box a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
+    <div class="fixed-social-box">
+        <a href="https://www.youtube.com/@doublesdevgames" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/doubleSgames" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://discord.gg/Pzmnjd5s36" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
 
     <nav>
+        <div class="logo-container">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames Logo">
+        </div>
         <ul>
-            <li><a href="index.html">메인</a></li>
-            <li><a href="Game_KR.html">게임</a></li>
-            <li><a href="Serke_KR.html">Serke 소개</a></li>
-            <li><a href="privacy_KR.html">privacy</a></li>
+            <li>
+                <a href="index_US.html"><span>Main</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#"><span>Games</span></a>
+                <div class="dropdown-content">
+                    <a href="Serke_US.html"><span>Serke</span></a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="active"><span>Language</span></a>
+                <div class="dropdown-content">
+                    <a href="privacy_KR.html"><span>Korean (KR)</span></a>
+                    <a href="privacy_US.html"><span>English (US)</span></a>
+                </div>
+            </li>
         </ul>
     </nav>
-
     <div class="privacy-content">
-        <h1>개인정보처리방침</h1>
+        <h1>Privacy Policy</h1>
         <p>
-            < DSGAMES >은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
-            <br>○ 이 개인정보처리방침은 2025년 9월 15일부터 적용됩니다.
+            DSGAMES has established and published the following privacy policy to protect the personal information of data subjects in accordance with Article 30 of the 「Personal Information Protection Act」 and to handle related complaints quickly and smoothly.
+            <br>○ This privacy policy takes effect on September 15, 2025.
         </p>
 
-        <h2>제1조(개인정보의 처리 목적)</h2>
+        <h2>Article 1 (Purpose of Processing Personal Information)</h2>
         <p>
-            < DSGAMES >은(는) 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+            DSGAMES processes personal information for the following purposes. The personal information being processed will not be used for purposes other than the following, and if the purpose of use is changed, necessary measures will be taken, such as obtaining separate consent in accordance with Article 18 of the 「Personal Information Protection Act」.
         </p>
         <p>
-            1. 재화 또는 서비스 제공<br>
-            콘텐츠 제공을 목적으로 개인정보를 처리합니다.
+            1. Provision of Goods or Services<br>
+            We process personal information for the purpose of providing content.
         </p>
         
-        <h2>제2조(개인정보의 처리 및 보유 기간)</h2>
+        <h2>Article 2 (Processing and Retention Period of Personal Information)</h2>
         <p>
-            ① < DSGAMES >은(는) 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.
+            ① DSGAMES processes and retains personal information within the period of personal information retention and use stipulated by law or agreed upon by the data subject at the time of collection.
         </p>
         <p>
-            ② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.
-            <br>1.<재화 또는 서비스 제공><br>
-            <재화 또는 서비스 제공>와 관련한 개인정보는 수집.이용에 관한 동의일로부터<1년>까지 위 이용목적을 위하여 보유.이용됩니다.
-            <br>보유근거 : 관련 법령에 의거
-            <br>관련 법령 : 신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년
-            <br>예외사유 :
-        </p>
-        
-        <h2>제3조(정보주체와 법정대리인의 권리·의무 및 그 행사방법)</h2>
-        <p>
-            ① 정보주체는 DSGAMES에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 등의 권리를 행사할 수 있습니다.<br>
-            ② 제1항에 따른 권리 행사는 DSGAMES에 대해 「개인정보 보호법」 시행령 제41조제1항에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 DSGAMES은(는) 이에 대해 지체 없이 조치하겠습니다.<br>
-            ③ 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 “개인정보 처리 방법에 관한 고시(제2020-7호)” 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.<br>
-            ④ 개인정보 열람 및 처리정지 요구는 「개인정보 보호법」 제35조 제4항, 제37조 제2항에 의하여 정보주체의 권리가 제한될 수 있습니다.<br>
-            ⑤ 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.<br>
-            ⑥ DSGAMES은(는) 정보주체 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
-        </p>
-
-        <h2>제4조(처리하는 개인정보의 항목 작성)</h2>
-        <p>
-            ① < DSGAMES >은(는) 다음의 개인정보 항목을 처리하고 있습니다.<br>
-            1.<재화 또는 서비스 제공><br>
-            필수항목 : 구글이 제공하는 정보<br>
-            선택항목 :
-        </p>
-
-        <h2>제5조(개인정보의 파기)</h2>
-        <p>
-            ① < DSGAMES >은(는) 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.
-        </p>
-        <p>
-            ② 정보주체로부터 동의받은 개인정보 보유기간이 경과하거나 처리목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.<br>
-            1. 법령 근거 :<br>
-            2. 보존하는 개인정보 항목 : 계좌정보, 거래날짜
-        </p>
-        <p>
-            ③ 개인정보 파기의 절차 및 방법은 다음과 같습니다.<br>
-            1. 파기절차<br>
-            < DSGAMES >은(는) 파기 사유가 발생한 개인정보를 선정하고, < DSGAMES >의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.<br>
-            2. 파기방법<br>
-            전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다.
-        </p>
-
-        <h2>제6조(개인정보의 안전성 확보 조치)</h2>
-        <p>
-            < DSGAMES >은(는) 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.<br>
-            1. 개인정보의 암호화<br>
-            이용자의 개인정보는 비밀번호는 암호화되어 저장 및 관리되고 있으며, 중요한 데이터는 파일 및 전송 데이터를 암호화하거나 파일 잠금 기능을 사용하는 등의 별도 보안 기능을 사용하고 있습니다.
+            ② The processing and retention periods for each type of personal information are as follows:
+            <br>1. <Provision of Goods or Services><br>
+            Personal information related to the provision of goods or services is retained and used for the above purpose for <1 year> from the date of consent to collection and use.
+            <br>Legal Basis for Retention: In accordance with relevant laws
+            <br>Relevant Laws: Records related to the collection/processing and use of credit information: 3 years
+            <br>Exemption:
         </p>
         
-        <h2>제7조(개인정보 자동 수집 장치의 설치•운영 및 거부에 관한 사항)</h2>
+        <h2>Article 3 (Rights and Obligations of Data Subjects and Legal Representatives and How to Exercise Them)</h2>
         <p>
-            DSGAMES은(는) 정보주체의 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용하지 않습니다.
+            ① The data subject can exercise rights such as requesting access, correction, deletion, or suspension of processing of personal information against DSGAMES at any time.<br>
+            ② The exercise of rights pursuant to Paragraph 1 can be done through a written request, electronic mail, fax, etc., in accordance with Article 41, Paragraph 1 of the Enforcement Decree of the 「Personal Information Protection Act」. DSGAMES will take action without delay.<br>
+            ③ The exercise of rights pursuant to Paragraph 1 can be done through a legal representative of the data subject or an entrusted person. In this case, a power of attorney in the form of Annex 11 of the "Personal Information Processing Method Notice (No. 2020-7)" must be submitted.<br>
+            ④ The rights of the data subject to request access to and suspension of processing of personal information may be restricted in accordance with Article 35, Paragraph 4, and Article 37, Paragraph 2 of the 「Personal Information Protection Act」.<br>
+            ⑤ The request for correction and deletion of personal information cannot be requested if the personal information is specified as a collection target in other laws.<br>
+            ⑥ When the data subject requests access, correction/deletion, or suspension of processing in accordance with their rights, DSGAMES confirms whether the person making the request is the data subject or a legitimate representative.
         </p>
 
-        <h2>제8조 (개인정보 보호책임자)</h2>
+        <h2>Article 4 (Items of Personal Information to be Processed)</h2>
         <p>
-            ① DSGAMES은(는) 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
-        </p>
-        <p>
-            <strong>▶ 개인정보 보호책임자</strong><br>
-            성명 : 성무현<br>
-            직책 : CO-CTO<br>
-            직급 : CO-CTO<br>
-            연락처 : doublesdevgames@gmail.com<br>
-            ※ 개인정보 보호 담당부서로 연결됩니다.
-        </p>
-        <p>
-            <strong>▶ 개인정보 보호 담당부서</strong><br>
-            부서명 :<br>
-            담당자 :<br>
-            연락처 :
-        </p>
-        <p>
-            ② 정보주체께서는 DSGAMES의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. DSGAMES은(는) 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.
+            ① DSGAMES processes the following personal information items:<br>
+            1.<Provision of Goods or Services><br>
+            Required items: Information provided by Google<br>
+            Optional items:
         </p>
 
-        <h2>제9조(개인정보 열람청구)</h2>
+        <h2>Article 5 (Destruction of Personal Information)</h2>
         <p>
-            정보주체는 「개인정보 보호법」 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다.<br>
-            < DSGAMES >은(는) 정보주체의 개인정보 열람청구가 신속하게 처리되도록 노력하겠습니다.
+            ① DSGAMES promptly destroys personal information when it becomes unnecessary, such as the expiration of the personal information retention period or the achievement of the purpose of processing.
         </p>
         <p>
-            <strong>▶ 개인정보 열람청구 접수·처리 부서</strong><br>
-            부서명 :<br>
-            담당자 :<br>
-            연락처 :
+            ② If personal information must be retained continuously in accordance with other laws, even if the personal information retention period agreed upon by the data subject has passed or the purpose of processing has been achieved, the personal information is transferred to a separate database (DB) or stored in a different location.<br>
+            1. Legal Basis:<br>
+            2. Items of personal information to be retained: Account information, transaction date
+        </p>
+        <p>
+            ③ The procedure and method for the destruction of personal information are as follows:<br>
+            1. Destruction Procedure<br>
+            DSGAMES selects personal information for which a reason for destruction has occurred and destroys the personal information after obtaining approval from the personal information protection officer of DSGAMES.<br>
+            2. Destruction Method<br>
+            Information in the form of electronic files is destroyed using a technical method that makes the record unrecoverable.
         </p>
 
-        <h2>제10조(권익침해 구제방법)</h2>
+        <h2>Article 6 (Measures to Ensure the Safety of Personal Information)</h2>
         <p>
-            정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다. 이 밖에 기타 개인정보침해의 신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.
+            DSGAMES takes the following measures to ensure the safety of personal information:<br>
+            1. Encryption of Personal Information<br>
+            Users' personal information is encrypted and stored, and important data is protected with separate security functions such as encrypting files and transmitted data or using file lock functions.
+        </p>
+        
+        <h2>Article 7 (Matters Concerning the Installation, Operation, and Refusal of Automatic Personal Information Collection Devices)</h2>
+        <p>
+            DSGAMES does not use 'cookies' to store and retrieve user information on a regular basis.
+        </p>
+
+        <h2>Article 8 (Personal Information Protection Officer)</h2>
+        <p>
+            ① DSGAMES is responsible for the overall handling of personal information and designates a personal information protection officer as follows to handle complaints and provide damage relief related to the processing of personal information.
+        </p>
+        <p>
+            <strong>▶ Personal Information Protection Officer</strong><br>
+            Name: Moohyun Sung<br>
+            Position: CO-CTO<br>
+            Title: CO-CTO<br>
+            Contact: doublesdevgames@gmail.com<br>
+            ※ Connects to the personal information protection department.
+        </p>
+        <p>
+            <strong>▶ Personal Information Protection Department</strong><br>
+            Department Name:<br>
+            Person in Charge:<br>
+            Contact:
+        </p>
+        <p>
+            ② Data subjects can inquire about all personal information protection-related matters, including complaints and damage relief, that arise while using the services (or business) of DSGAMES to the personal information protection officer and the responsible department. DSGAMES will respond to and process inquiries from data subjects without delay.
+        </p>
+
+        <h2>Article 9 (Request for Access to Personal Information)</h2>
+        <p>
+            Data subjects can request access to their personal information in accordance with Article 35 of the 「Personal Information Protection Act」 from the department below.<br>
+            DSGAMES will endeavor to ensure that data subjects' requests for access to personal information are handled promptly.
+        </p>
+        <p>
+            <strong>▶ Department for Receiving and Handling Requests for Access to Personal Information</strong><br>
+            Department Name:<br>
+            Person in Charge:<br>
+            Contact:
+        </p>
+
+        <h2>Article 10 (Remedies for Infringement of Rights)</h2>
+        <p>
+            Data subjects can apply for dispute resolution or consultation with the Personal Information Dispute Mediation Committee, the Personal Information Infringement Reporting Center of the Korea Internet & Security Agency, etc., to seek remedies for personal information infringement. For other personal information infringement reports and consultations, please contact the following organizations.
         </p>
         <ul>
-            <li>개인정보분쟁조정위원회 : (국번없이) 1833-6972 (www.kopico.go.kr)</li>
-            <li>개인정보침해신고센터 : (국번없이) 118 (privacy.kisa.or.kr)</li>
-            <li>대검찰청 : (국번없이) 1301 (www.spo.go.kr)</li>
-            <li>경찰청 : (국번없이) 182 (ecrm.cyber.go.kr)</li>
+            <li>Personal Information Dispute Mediation Committee: (Without Area Code) 1833-6972 (www.kopico.go.kr)</li>
+            <li>Personal Information Infringement Reporting Center: (Without Area Code) 118 (privacy.kisa.or.kr)</li>
+            <li>Supreme Prosecutors' Office: (Without Area Code) 1301 (www.spo.go.kr)</li>
+            <li>National Police Agency: (Without Area Code) 182 (ecrm.cyber.go.kr)</li>
         </ul>
         <p>
-            「개인정보보호법」제35조(개인정보의 열람), 제36조(개인정보의 정정·삭제), 제37조(개인정보의 처리정지 등)의 규정에 의한 요구에 대하여 공공기관의 장이 행한 처분 또는 부작위로 인하여 권리 또는 이익의 침해를 받은 자는 행정심판법이 정하는 바에 따라 행정심판을 청구할 수 있습니다.
+            Any person whose rights or interests have been infringed by a disposition or omission by the head of a public institution regarding the requirements of Article 35 (Access to Personal Information), Article 36 (Correction/Deletion of Personal Information), and Article 37 (Suspension of Personal Information Processing, etc.) of the 「Personal Information Protection Act」 may file an administrative appeal in accordance with the Administrative Appeals Act.
         </p>
         <p>
-            ※ 행정심판에 대해 자세한 사항은 중앙행정심판위원회(www.simpan.go.kr) 홈페이지를 참고하시기 바랍니다.
+            ※ For more information on administrative appeals, please refer to the website of the Central Administrative Appeals Commission (www.simpan.go.kr).
         </p>
 
-        <h2>제11조(개인정보 처리방침 변경)</h2>
+        <h2>Article 11 (Changes to the Privacy Policy)</h2>
         <p>
-            ① 이 개인정보처리방침은 2025년 9월 15일부터 적용됩니다.
+            ① This privacy policy takes effect on September 15, 2025.
         </p>
         <p>
-            ② 이전의 개인정보 처리방침은 아래에서 확인하실 수 있습니다.
+            ② Previous versions of the privacy policy can be viewed below.
         </p>
     </div>
     
-    <button class="back-button" onclick="location.href='index.html'">메인으로</button>
+    <button class="back-button" onclick="location.href='index_US.html'">Back to Main</button>
 
 </body>
 </html>
