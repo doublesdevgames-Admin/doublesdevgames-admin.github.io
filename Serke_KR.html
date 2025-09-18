@@ -183,22 +183,13 @@
             z-index: 1; 
         }
 
-        /* --- 무기 쇼케이스 섹션 --- */
+        /* --- 무기 쇼케이스 섹션 (이전 GIF 섹션) --- */
         .weapon-showcase {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 50px 10%;
+            /* 이제 각 무기 설명 내부에 개별 GIF가 있으므로, 이 섹션은 삭제하거나 목적에 맞게 수정합니다. */
+            /* 여기서는 삭제하고 무기 소개 섹션으로 대체합니다. */
+            display: none; /* 이전 GIF 쇼케이스 숨김 */
         }
-        .weapon-showcase img {
-            height: 150px;
-            filter: drop-shadow(0 0 5px #80ffeb);
-            transition: transform 0.3s ease;
-        }
-        .weapon-showcase img:hover {
-            transform: scale(1.1);
-        }
-
+        
         /* --- 스크린샷 슬라이드쇼 --- */
         .slideshow-container {
             max-width: 900px;
@@ -263,31 +254,51 @@
             to {opacity: 1}
         }
         
-        /* --- 게임 소개 섹션 텍스트 박스 스타일 --- */
-        .game-info-section {
-            background-color: rgba(45, 45, 45, 0.8); 
+        /* --- 게임 소개 및 무기 소개 박스 스타일 --- */
+        .info-box { /* game-info-section 이름을 더 범용적인 info-box로 변경 */
+            background-color: rgba(0, 0, 0, 0.9); /* 불투명한 검은색 배경 */
             padding: 50px 10%;
             text-align: center;
             max-width: 900px; 
             margin: 50px auto; 
             border-radius: 10px; 
             box-shadow: 0 0 15px rgba(0, 255, 235, 0.5); 
+            color: #e0e0e0; /* 텍스트 색상 기본값 */
         }
 
-        .game-info-section h2 {
+        .info-box h2 {
             font-size: 2.5em;
             color: #80ffeb;
             margin-bottom: 20px;
             text-shadow: 0 0 8px rgba(128, 255, 235, 0.7); 
         }
 
-        .game-info-section p {
+        .info-box p {
             font-size: 1.2em;
             line-height: 1.6;
             max-width: 800px;
-            margin: 0 auto 40px;
-            color: #e0e0e0; 
+            margin: 0 auto 20px; /* 문단 간격 조정 */
         }
+
+        .info-box h3 { /* 무기 이름 스타일 */
+            font-size: 1.8em;
+            color: #80ffeb;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 6px rgba(128, 255, 235, 0.6);
+        }
+
+        .info-box .weapon-gif { /* 무기 GIF 스타일 */
+            max-width: 100%;
+            height: 150px; /* GIF 높이 고정 */
+            filter: drop-shadow(0 0 5px #80ffeb);
+            margin-top: 20px;
+            margin-bottom: 40px;
+            display: block; /* 중앙 정렬을 위해 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
 
         /* --- 하단 푸터 및 소셜 아이콘 --- */
         .another-section {
@@ -382,7 +393,7 @@
             <p class="serke-header-text">바이러스 침입에 맞서는 핵 앤 슬래시 액션!</p>
         </div>
         
-        <div class="game-info-section">
+        <div class="info-box">
             <h2>게임 소개</h2>
             <p>
                 세르케는 바이러스 침입에 대항하여 싸우는 핵 앤 슬래시 액션 게임입니다. 플레이어는 인공지능 정화프로그렘인 '세르케'가 되어, 악의적인 바이러스에 감염된 적들을 정화하고 가상 세계를 구원해야 합니다.
@@ -392,12 +403,29 @@
             </p>
         </div>
 
-        <div class="weapon-showcase">
-            <img src="images/serke/WP_Sword.gif" alt="검">
-            <img src="images/serke/WP_Rifle.gif" alt="총">
-            <img src="images/serke/WP_Halberd.gif" alt="할버드">
-            <img src="images/serke/WP_Heavyweapon.gif" alt="중화기">
-            <img src="images/serke/WP_Gauntlet.gif" alt="건틀릿">
+        <div class="info-box">
+            <h2>무기 소개</h2>
+            
+            <h3>시아네아</h3>
+            <p>시아네아는 기동성이 뛰어난 한손검 무기입니다.<br>모든 능력치가 준수하여 밸런스가 좋은 무기입니다.</p>
+            <img src="images/serke/WP_Sword.gif" alt="시아네아 GIF" class="weapon-gif">
+
+            <h3>스피니퍼</h3>
+            <p>스피니퍼는 라이플을 바탕으로 드론, 터렛을 소환하여 끊임없이 이동하며 싸웁니다.<br>거리를 두고 일방적으로 적을 공격할 수 있는 무기입니다.</p>
+            <img src="images/serke/WP_Rifle.gif" alt="스피니퍼 GIF" class="weapon-gif">
+
+            <h3>레드 클로우</h3>
+            <p>레드 클로우는 할버드 형태의 대형 근접 무기입니다.<br>강력한 데미지로 일격에 적을 분쇄하세요.</p>
+            <img src="images/serke/WP_Halberd.gif" alt="레드 클로우 GIF" class="weapon-gif">
+
+            <h3>임페라토르</h3>
+            <p>임페라토르는 화력 장비를 사용하는 강력한 원거리 무기입니다.<br>고화력 장비인 샷건, 게틀링, 레이저포, 유탄을 사용해 적을 섬멸하세요.</p>
+            <img src="images/serke/WP_Heavyweapon.gif" alt="임페라토르 GIF" class="weapon-gif">
+
+            <h3>데스 스토커</h3>
+            <p>데스 스토커는 가까이 접근하여 싸우는 격투 무기입니다.<br>킥과 펀치로 공격하기 때문에 속도감 있는 전투를 할 수 있습니다.</p>
+            <img src="images/serke/WP_Gauntlet.gif" alt="데스 스토커 GIF" class="weapon-gif">
+
         </div>
 
         <div class="slideshow-container">
