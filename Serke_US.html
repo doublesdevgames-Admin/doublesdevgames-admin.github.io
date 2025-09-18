@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DoublesDevGames - 세르케</title>
+    <title>DoublesDevGames - Serke</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         body {
@@ -10,7 +10,7 @@
             background-color: #1f1f1f;
         }
 
-        /* --- 상단 메뉴바 --- */
+        /* --- Top Navigation Bar --- */
         nav {
             background-color: #000000;
             width: 100vw;
@@ -49,13 +49,13 @@
             color: black;
         }
         
-        /* 현재 페이지 활성화 표시 */
+        /* Current Page Active Indicator */
         nav li a.active {
             background-color: #80ffeb;
             color: black;
         }
         
-        /* --- 회사 로고 --- */
+        /* --- Company Logo --- */
         .logo-container {
             position: absolute;
             left: 50%;
@@ -67,7 +67,7 @@
             vertical-align: middle;
         }
 
-        /* --- 드롭다운 메뉴 --- */
+        /* --- Dropdown Menu --- */
         .dropdown-content {
             overflow: hidden;
             max-height: 0;
@@ -110,7 +110,7 @@
             color: #000 !important;
         }
         
-        /* --- 메인 콘텐츠 및 배경 --- */
+        /* --- Main Content and Background --- */
         .main-content {
             margin-left: 0;
             background-image: url('./images/serke/Stage_timeAtk.png');
@@ -126,7 +126,7 @@
             z-index: 1; 
         }
         
-        /* 배경 밝기 조절을 위한 오버레이 */
+        /* Overlay for background brightness control */
         .main-content::before {
             content: '';
             position: absolute;
@@ -138,7 +138,7 @@
             z-index: -1; 
         }
 
-        /* --- 세르케 페이지 전용 스타일 --- */
+        /* --- Serke Page Specific Styles --- */
         .serke-header-section {
             height: 50vh; 
             display: flex;
@@ -152,7 +152,7 @@
             height: auto;
             margin-top: -300px; 
         }
-        /* --- gamelogo.png 아래 문구 스타일 --- */
+        /* --- Style for the text below gamelogo.png --- */
         .serke-header-text {
             font-size: 1.8em; 
             color: #80ffeb; 
@@ -163,7 +163,7 @@
             z-index: 1; 
             margin-bottom: 30px; 
         }
-        /* --- 스팀/스토브 버튼 컨테이너 --- */
+        /* --- Steam/Stove Button Container --- */
         .platform-buttons {
             display: flex;
             justify-content: center;
@@ -193,7 +193,7 @@
             background-color: #0056b3;
             transform: translateY(-3px);
         }
-        /* 스토브 버튼 색상 */
+        /* Stove Button Color */
         .platform-buttons a.stove-button {
             background-color: #d10007; 
         }
@@ -201,7 +201,7 @@
             background-color: #a00005;
         }
 
-        /* --- 스크린샷 슬라이드쇼 --- */
+        /* --- Screenshot Slideshow --- */
         .slideshow-container {
             max-width: 900px;
             position: relative;
@@ -258,7 +258,7 @@
             to {opacity: 1}
         }
         
-        /* --- 게임 소개 및 무기 소개 박스 스타일 --- */
+        /* --- Game Intro and Weapon Intro Box Style --- */
         .info-box { 
             background-color: rgba(0, 0, 0, 0.9); 
             padding: 50px 10%;
@@ -297,7 +297,7 @@
         .info-box .weapon-item:last-of-type {
             margin-bottom: 0;
         }
-        /* --- GIF 이미지 스타일 --- */
+        /* --- GIF Image Style --- */
         .info-box .weapon-gif { 
             max-width: 100%;
             height: 150px; 
@@ -309,7 +309,7 @@
             margin-right: auto;
         }
 
-        /* --- 재생 버튼 스타일 (메인 페이지) --- */
+        /* --- Play Button Style (Main Page) --- */
         .main-play-button {
             background-color: #80ffeb;
             color: black;
@@ -328,7 +328,7 @@
             background-color: #66ccb3;
             transform: translateY(-2px);
         }
-        /* --- 모달 (팝업) 스타일 --- */
+        /* --- Modal (Popup) Style --- */
         .modal {
             display: none; 
             position: fixed; 
@@ -379,7 +379,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        /* --- 모달 내 버튼 스타일 --- */
+        /* --- Buttons inside the Modal --- */
         .modal-buttons-container {
             display: flex;
             flex-wrap: wrap; 
@@ -401,7 +401,7 @@
             color: #000;
         }
 
-        /* --- 하단 푸터 및 소셜 아이콘 --- */
+        /* --- Bottom Footer and Social Icons --- */
         .another-section {
             background-color: #1f1f1f; 
             color: white;
@@ -428,7 +428,7 @@
             color: #80ffeb;
         }
 
-        /* --- 좌측 고정 소셜 박스 --- */
+        /* --- Left Fixed Social Box --- */
         .fixed-social-box {
             position: fixed;
             left: 50px;
@@ -463,96 +463,96 @@
 
     <nav>
         <div class="logo-container">
-            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames Logo">
         </div>
         <ul>
             <li>
-                <a href="index.html"><span>메인</span></a>
+                <a href="index.html"><span>Main</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="active"><span>게임</span></a>
+                <a href="#" class="active"><span>Games</span></a>
                 <div class="dropdown-content">
-                    <a href="Serke_KR.html"><span>세르케</span></a>
+                    <a href="Serke_EN.html"><span>Serke</span></a>
                 </div>
             </li>
             <li class="dropdown">
-                <a href="#"><span>언어</span></a>
+                <a href="#"><span>Language</span></a>
                 <div class="dropdown-content">
-                    <a href="index.html"><span>한국어 (KR)</span></a>
-                    <a href="index_US.html"><span>English (US)</span></a>
+                    <a href="Serke_KR.html"><span>Korean (KR)</span></a>
+                    <a href="Serke_EN.html"><span>English (US)</span></a>
                 </div>
             </li>
         </ul>
     </nav>
     <div class="main-content">
         <div class="serke-header-section">
-            <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
-            <p class="serke-header-text">바이러스 침입에 맞서는 핵 앤 슬래시 액션!</p>
+            <img src="images/serke/gamelogo.png" alt="Serke Game Logo">
+            <p class="serke-header-text">Hack and slash action against a virus invasion!</p>
             <div class="platform-buttons">
                 <a href="https://store.steampowered.com/app/2825410/Serke/" target="_blank">
-                    <i class="fa-brands fa-steam"></i>Steam에서 플레이
+                    <i class="fa-brands fa-steam"></i>Play on Steam
                 </a>
                 <a href="https://store.onstove.com/ko/games/3751" target="_blank" class="stove-button">
-                    <i class="fa-solid fa-fire"></i>Stove에서 플레이
+                    <i class="fa-solid fa-fire"></i>Play on Stove
                 </a>
             </div>
         </div>
         
         <div class="info-box">
-            <h2>게임 소개</h2>
+            <h2>Game Introduction</h2>
             <p>
-                세르케는 바이러스 침입에 대항하여 싸우는 핵 앤 슬래시 액션 게임입니다. 플레이어는 인공지능 정화프로그렘인 '세르케'가 되어, 악의적인 바이러스에 감염된 적들을 정화하고 가상 세계를 구원해야 합니다.
+                Serke is a hack and slash action game where you fight against a virus invasion. As 'Serke,' an AI purification program, the player must purify enemies infected with malicious viruses and save the virtual world.
             </p>
             <p>
-                5종류의 독특한 무기 (검, 소총, 할버드, 중화기, 건틀릿 등)를 사용하여 끊임없이 몰려오는 적들을 시원하게 섬멸하고, 다이나믹한 전투 시스템으로 전략적인 액션을 펼치십시오. 미래 지향적인 SF 배경과 압도적인 핵 앤 슬래시 액션이 당신을 기다립니다.
+                Utilize five unique weapons (sword, rifle, halberd, heavy weapon, gauntlet) to coolly annihilate the constantly approaching enemies and unleash strategic action with a dynamic combat system. The futuristic SF background and overwhelming hack and slash action await you.
             </p>
         </div>
 
         <div class="info-box">
-            <h2>무기 소개</h2>
+            <h2>Weapon Introduction</h2>
             
             <div class="weapon-item">
-                <h3>시아네아</h3>
-                <p>시아네아는 기동성이 뛰어난 한손검 무기입니다.<br>모든 능력치가 준수하여 밸런스가 좋은 무기입니다.</p>
-                <img src="images/serke/WP_Sword.gif" alt="시아네아 GIF" class="weapon-gif">
+                <h3>Cyanea</h3>
+                <p>Cyanea is a one-handed sword with excellent mobility.<br>It is a well-balanced weapon with decent stats in all areas.</p>
+                <img src="images/serke/WP_Sword.gif" alt="Cyanea GIF" class="weapon-gif">
                 <button class="main-play-button" data-weapon="Sword">
-                    <i class="fa-solid fa-play"></i> 재생
+                    <i class="fa-solid fa-play"></i> Play
                 </button>
             </div>
 
             <div class="weapon-item">
-                <h3>스피니퍼</h3>
-                <p>스피니퍼는 라이플을 바탕으로 드론, 터렛을 소환하여 끊임없이 이동하며 싸웁니다.<br>거리를 두고 일방적으로 적을 공격할 수 있는 무기입니다.</p>
-                <img src="images/serke/WP_Rifle.gif" alt="스피니퍼 GIF" class="weapon-gif">
+                <h3>Spinnifer</h3>
+                <p>Spinnifer is a rifle-based weapon that summons drones and turrets to fight while constantly moving.<br>You can unilaterally attack enemies from a distance.</p>
+                <img src="images/serke/WP_Rifle.gif" alt="Spinnifer GIF" class="weapon-gif">
                 <button class="main-play-button" data-weapon="Rifle">
-                    <i class="fa-solid fa-play"></i> 재생
+                    <i class="fa-solid fa-play"></i> Play
                 </button>
             </div>
 
             <div class="weapon-item">
-                <h3>레드 클로우</h3>
-                <p>레드 클로우는 할버드 형태의 대형 근접 무기입니다.<br>강력한 데미지로 일격에 적을 분쇄하세요.</p>
-                <img src="images/serke/WP_Halberd.gif" alt="레드 클로우 GIF" class="weapon-gif">
+                <h3>Red Claw</h3>
+                <p>Red Claw is a large, halberd-type melee weapon.<br>Annihilate enemies with one powerful blow.</p>
+                <img src="images/serke/WP_Halberd.gif" alt="Red Claw GIF" class="weapon-gif">
                 <button class="main-play-button" data-weapon="Halberd">
-                    <i class="fa-solid fa-play"></i> 재생
+                    <i class="fa-solid fa-play"></i> Play
                 </button>
             </div>
 
             <div class="weapon-item">
-                <h3>임페라토르</h3>
-                <p>임페라토르는 화력 장비를 사용하는 강력한 원거리 무기입니다.<br>고화력 장비인 샷건, 게틀링, 레이저포, 유탄을 사용해 적을 섬멸하세요.</p>
-                <img src="images/serke/WP_Heavyweapon.gif" alt="임페라토르 GIF" class="weapon-gif">
+                <h3>Imperator</h3>
+                <p>Imperator is a powerful long-range weapon that uses firepower equipment.<br>Annihilate enemies using high-firepower equipment such as shotguns, gatling guns, laser cannons, and grenade launchers.</p>
+                <img src="images/serke/WP_Heavyweapon.gif" alt="Imperator GIF" class="weapon-gif">
                 <button class="main-play-button" data-weapon="HW">
-                    <i class="fa-solid fa-play"></i> 재생
+                    <i class="fa-solid fa-play"></i> Play
                 </button>
             </div>
 
             <div class="weapon-item">
-                <h3>데스 스토커</h3>
-                <p>데스 스토커는 가까이 접근하여 싸우는 격투 무기입니다.<br>킥과 펀치로 공격하기 때문에 속도감 있는 전투를 할 수 있습니다.</p>
-                <img src="images/serke/WP_Gauntlet.gif" alt="데스 스토커 GIF" class="weapon-gif">
+                <h3>Death Stalker</h3>
+                <p>Death Stalker is a melee weapon for close-quarters combat.<br>You can engage in fast-paced battles with kicks and punches.</p>
+                <img src="images/serke/WP_Gauntlet.gif" alt="Death Stalker GIF" class="weapon-gif">
                 <button class="main-play-button" data-weapon="Gauntlet">
-                    <i class="fa-solid fa-play"></i> 재생
+                    <i class="fa-solid fa-play"></i> Play
                 </button>
             </div>
 
@@ -593,9 +593,9 @@
     </div>
         
     <div class="another-section">
-        <span class="company-name">디에스게임즈</span>
+        <span class="company-name">DoublesDevGames</span>
         <span>doublesdevgames@gmail.com</span>
-        <span>인천시 부평구 경인로 890번길 57</span>
+        <span>57 Gyeongin-ro 890beon-gil, Bupyeong-gu, Incheon, South Korea</span>
     </div>
 
     <div id="videoModal" class="modal">
@@ -603,7 +603,7 @@
             <span class="close-button" onclick="closeModal()">&times;</span>
             <video id="modalVideo" controls loop autoplay playsinline>
                 <source src="" type="video/mp4">
-                죄송합니다. 귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
+                Sorry, your browser does not support the video tag.
             </video>
             <div id="modalControls" class="modal-buttons-container"></div>
         </div>
@@ -637,48 +637,48 @@
             dots[slideIndex-1].className += " active";
         }
 
-        // --- 비디오 모달 관련 스크립트 ---
+        // --- Video Modal Script ---
         const videoModal = document.getElementById('videoModal');
         const modalVideo = document.getElementById('modalVideo');
         const modalControls = document.getElementById('modalControls');
         const mainPlayButtons = document.querySelectorAll('.main-play-button');
 
-        // 무기별 영상 목록
+        // List of videos by weapon
         const videoMap = {
             'Sword': [
-                { name: '무기 정보', file: 'SwordInfo.mp4' },
-                { name: '스킬 1', file: 'Swordskill1.mp4' },
-                { name: '스킬 2', file: 'Swordskill2.mp4' },
-                { name: '스킬 3', file: 'Swordskill3.mp4' },
-                { name: '스킬 4', file: 'Swordskill4.mp4' },
+                { name: 'Weapon Info', file: 'SwordInfo.mp4' },
+                { name: 'Skill 1', file: 'Swordskill1.mp4' },
+                { name: 'Skill 2', file: 'Swordskill2.mp4' },
+                { name: 'Skill 3', file: 'Swordskill3.mp4' },
+                { name: 'Skill 4', file: 'Swordskill4.mp4' },
             ],
             'Rifle': [
-                { name: '무기 정보', file: 'RifleInfo.mp4' },
-                { name: '스킬 1', file: 'Rifleskill1.mp4' },
-                { name: '스킬 2', file: 'Rifleskill2.mp4' },
-                { name: '스킬 3', file: 'Rifleskill3.mp4' },
-                { name: '스킬 4', file: 'Rifleskill4.mp4' },
+                { name: 'Weapon Info', file: 'RifleInfo.mp4' },
+                { name: 'Skill 1', file: 'Rifleskill1.mp4' },
+                { name: 'Skill 2', file: 'Rifleskill2.mp4' },
+                { name: 'Skill 3', file: 'Rifleskill3.mp4' },
+                { name: 'Skill 4', file: 'Rifleskill4.mp4' },
             ],
             'Halberd': [
-                { name: '무기 정보', file: 'HalberdInfo.mp4' },
-                { name: '스킬 1', file: 'Halberdskill1.mp4' },
-                { name: '스킬 2', file: 'Halberdskill2.mp4' },
-                { name: '스킬 3', file: 'Halberdskill3.mp4' },
-                { name: '스킬 4', file: 'Halberdskill4.mp4' },
+                { name: 'Weapon Info', file: 'HalberdInfo.mp4' },
+                { name: 'Skill 1', file: 'Halberdskill1.mp4' },
+                { name: 'Skill 2', file: 'Halberdskill2.mp4' },
+                { name: 'Skill 3', file: 'Halberdskill3.mp4' },
+                { name: 'Skill 4', file: 'Halberdskill4.mp4' },
             ],
             'HW': [
-                { name: '무기 정보', file: 'HWInfo.mp4' },
-                { name: '스킬 1', file: 'HWskill1.mp4' },
-                { name: '스킬 2', file: 'HWskill2.mp4' },
-                { name: '스킬 3', file: 'HWskill3.mp4' },
-                { name: '스킬 4', file: 'HWskill4.mp4' },
+                { name: 'Weapon Info', file: 'HWInfo.mp4' },
+                { name: 'Skill 1', file: 'HWskill1.mp4' },
+                { name: 'Skill 2', file: 'HWskill2.mp4' },
+                { name: 'Skill 3', file: 'HWskill3.mp4' },
+                { name: 'Skill 4', file: 'HWskill4.mp4' },
             ],
             'Gauntlet': [
-                { name: '무기 정보', file: 'GauntletInfo.mp4' },
-                { name: '스킬 1', file: 'Gauntletskill1.mp4' },
-                { name: '스킬 2', file: 'Gauntletskill2.mp4' },
-                { name: '스킬 3', file: 'Gauntletskill3.mp4' },
-                { name: '스킬 4', file: 'Gauntletskill4.mp4' },
+                { name: 'Weapon Info', file: 'GauntletInfo.mp4' },
+                { name: 'Skill 1', file: 'Gauntletskill1.mp4' },
+                { name: 'Skill 2', file: 'Gauntletskill2.mp4' },
+                { name: 'Skill 3', file: 'Gauntletskill3.mp4' },
+                { name: 'Skill 4', file: 'Gauntletskill4.mp4' },
             ],
         };
 
@@ -688,14 +688,14 @@
                 const videos = videoMap[weaponType];
 
                 if (!videos || videos.length === 0) {
-                    console.error('해당 무기에 대한 비디오 정보가 없습니다.');
+                    console.error('No video information found for this weapon.');
                     return;
                 }
 
-                // 기존 버튼 제거
+                // Remove existing buttons
                 modalControls.innerHTML = '';
 
-                // 비디오 버튼 생성 및 추가
+                // Create and add video buttons
                 videos.forEach(video => {
                     const videoButton = document.createElement('button');
                     videoButton.textContent = video.name;
@@ -706,7 +706,7 @@
                     modalControls.appendChild(videoButton);
                 });
 
-                // 모달 열기 및 첫 번째 영상 재생
+                // Open modal and play first video
                 modalVideo.src = `videos/serke/${videos[0].file}`;
                 videoModal.style.display = 'flex';
                 modalVideo.play();
