@@ -115,7 +115,7 @@
             margin-left: 0;
             background-color: #1a1a1a;
             color: white;
-            padding-top: 75px; /* 상단 메뉴바의 높이만큼 여백을 줘서 가려지지 않게 합니다. */
+            padding-top: 75px; 
             min-height: 100vh;
         }
         
@@ -132,12 +132,13 @@
             flex-direction: column;
             justify-content: flex-start; 
             align-items: center;
-            padding-top: 30px; /* 로고를 더 위로 올리기 위해 패딩을 줄입니다. */
+            padding-top: 0px; /* 로고를 더 위로 올리기 위해 패딩을 제거합니다. */
         }
 
         .serke-header-section img {
             max-width: 60%;
             height: auto;
+            margin-top: -300px; /* 로고를 위로 300px 올립니다. */
         }
 
         /* --- 무기 쇼케이스 섹션 --- */
