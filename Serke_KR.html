@@ -138,6 +138,24 @@
             z-index: -1; 
         }
 
+        /* --- 우측 고정 캐릭터 이미지 --- */
+        .fixed-character-right {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 80%; /* 화면 높이에 맞춰 조정 */
+            opacity: 0.8; /* 투명도 조절 (배경처럼 보이도록) */
+            filter: brightness(70%); /* 30% 어둡게 */
+            z-index: 0; /* 다른 콘텐츠보다 아래에 위치 */
+            pointer-events: none; /* 이미지 클릭 방지 (배경처럼 작동) */
+        }
+        .fixed-character-right img {
+            height: 100%;
+            width: auto;
+        }
+
+
         /* --- 세르케 페이지 전용 스타일 --- */
         .serke-header-section {
             height: 50vh; 
@@ -344,6 +362,10 @@
         </ul>
     </nav>
     <div class="main-content">
+        <div class="fixed-character-right">
+            <img src="images/serke/Character.png" alt="세르케 캐릭터">
+        </div>
+
         <div class="serke-header-section">
             <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
         </div>
