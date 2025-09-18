@@ -279,3 +279,147 @@
             position: fixed;
             left: 50px;
             top: 50%;
+            transform: translateY(-50%);
+            width: 72px;
+            background-color: #80ffeb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0;
+            z-index: 20;
+        }
+        .fixed-social-box a {
+            color: #000;
+            font-size: 34px;
+            margin: 18px 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .fixed-social-box a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-social-box">
+        <a href="https://www.youtube.com/@doublesdevgames" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/doubleSgames" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://discord.gg/Pzmnjd5s36" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
+
+    <nav>
+        <div class="logo-container">
+            <img src="images/dsgames_Logo2.png" alt="DoublesDevGames 로고">
+        </div>
+        <ul>
+            <li>
+                <a href="index.html"><span>메인</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="active"><span>게임</span></a>
+                <div class="dropdown-content">
+                    <a href="Serke_KR.html"><span>세르케</span></a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#"><span>언어</span></a>
+                <div class="dropdown-content">
+                    <a href="index.html"><span>한국어 (KR)</span></a>
+                    <a href="index_US.html"><span>English (US)</span></a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="serke-header-section">
+            <img src="images/serke/gamelogo.png" alt="세르케 게임 로고">
+        </div>
+
+        <div class="weapon-showcase">
+            <img src="images/serke/WP_Sword.gif" alt="검">
+            <img src="images/serke/WP_Rifle.gif" alt="총">
+            <img src="images/serke/WP_Halberd.gif" alt="할버드">
+            <img src="images/serke/WP_Heavyweapon.gif" alt="중화기">
+            <img src="images/serke/WP_Gauntlet.gif" alt="건틀릿">
+        </div>
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot1.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot2.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot3.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot4.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot5.png">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/serke/screenshot6.png">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+        <div class="game-info-section">
+            <h2>게임 소개</h2>
+            <p>
+                세르케는 신비로운 동양의 신화를 배경으로 한 스타일리시 액션 RPG 게임입니다.
+                아름다운 수묵화풍의 그래픽과 다이나믹한 전투 시스템을 통해 플레이어는 몰입감 넘치는 여정을 경험하게 됩니다.
+                고대 문명의 비밀을 파헤치고, 강력한 적들에 맞서 싸우며 자신만의 전설을 만들어가세요.
+                다양한 무기와 스킬 조합으로 개성 넘치는 전투 스타일을 구현할 수 있으며, 전략적인 판단과 정교한 컨트롤이 요구됩니다.
+                잊혀진 영웅의 이야기를 따라가며 세르케의 세계에 숨겨진 진실을 밝혀내세요.
+            </p>
+        </div>
+        
+        <div class="another-section">
+            <span class="company-name">디에스게임즈</span>
+            <span>doublesdevgames@gmail.com</span>
+            <span>인천시 부평구 경인로 890번길 57</span>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
